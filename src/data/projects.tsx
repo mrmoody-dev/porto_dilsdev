@@ -1,7 +1,5 @@
 // src/data/projects.js
 import projectImage1 from "../assets/images/gorilla.png";
-import projectImage2 from "../assets/images/Logo BCS IT.png";
-import projectImage3 from "../assets/images/LogoIT.png";
 
 export const allProjects = [
   {
@@ -15,7 +13,7 @@ export const allProjects = [
   {
     id: "website-agency",
     title: "Website Agency Seventhsense",
-    image: projectImage2,
+    image: projectImage1,
     description: "Website Agency miliki Seventhsense.",
     details:
       "Website untuk profiling agency dan talent talent nya.",
@@ -23,7 +21,7 @@ export const allProjects = [
   {
     id: "aplikasi-form-pendaftaran",
     title: "Aplikasi Pendaftaran Peserta Converence",
-    image: projectImage3,
+    image: projectImage1,
     description: "Aplikasi untuk pendafataran peserta converence taraf internasional.",
     details:
       "Aplikasi web untuk melakukan pendaftaran peserta converence taraf internasional.",

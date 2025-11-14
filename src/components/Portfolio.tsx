@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import GorillaImage from '../assets/images/gorilla.png';
-import BcsItLogo from '../assets/images/Logo BCS IT.png';
-import ItLogo from '../assets/images/LogoIT.png';
-import BatariImage from '../assets/images/batari.png'; // Re-using batari.png for now
+import AdiImage from '../assets/images/adi.png';
 import { FaGlobe, FaUsers, FaCalendarAlt, FaEnvelope, FaServer } from 'react-icons/fa';
 
 const portfolioImages = [
   { id: 1, src: GorillaImage, alt: 'Website Development (seventhsense.id)' },
-  { id: 2, src: BcsItLogo, alt: 'Membership System (member.aspikom.org)' },
-  { id: 3, src: ItLogo, alt: 'Conference Website (iicacs.com - 2024)' },
-  { id: 4, src: BatariImage, alt: 'Online Letter System (suratonline - budiluhur)' },
+  { id: 2, src: GorillaImage, alt: 'Membership System (member.aspikom.org)' },
+  { id: 3, src: GorillaImage, alt: 'Conference Website (iicacs.com - 2024)' },
+  { id: 4, src: AdiImage, alt: 'Online Letter System (suratonline - budiluhur)' },
   { id: 5, src: GorillaImage, alt: 'Server Migration' }, // Re-using GorillaImage
 ];
 

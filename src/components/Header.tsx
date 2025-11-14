@@ -3,7 +3,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Import motion
 // Removed react-icons import
-import logo from "../assets/images/logo_dilsdev.png";
 import { ThemeContext } from "../context/ThemeContext";
 
 function Header() {
@@ -33,7 +32,7 @@ function Header() {
     >
       <div className="header-left">
             <Link to="/#beranda" className="header-logo-link">
-              <img src={logo} alt="Logo Perusahaan" className="logo-img" />
+              <img src="/logo_dilsdev.png" alt="Logo Perusahaan" className="logo-img" style={{ width: '100px', height: 'auto' }} />
               <span className="logo-text">My Portfolio</span> {/* Added text logo */}
             </Link>
           </div>

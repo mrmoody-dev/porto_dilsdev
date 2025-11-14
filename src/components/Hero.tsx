@@ -1,5 +1,5 @@
 import React from 'react';
-import BatariImage from '../assets/images/batari.png';
+import AdiImage from '../assets/images/adi.png';
 
 const Hero: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         </a>
       </div>
       <div className="hero-image-container">
-        <img src={BatariImage} alt="Batari Wulan - Makeup Artist" className="hero-image" />
+        <img src={AdiImage} alt="Adi Fuadil Hidayah - Web Developer" className="hero-image" />
       </div>
     </div>
   );

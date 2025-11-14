@@ -1,5 +1,5 @@
 import React from 'react';
-import BatariImage from '../assets/images/batari.png';
+import AdiImage from '../assets/images/adi.png';
 
 const About: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const About: React.FC = () => {
           </p>
         </div>
         <div className="about-image">
-          <img src={BatariImage} alt="Adi Fuadil Hidayah - Web Developer" />
+          <img src={AdiImage} alt="Adi Fuadil Hidayah - Web Developer" />
         </div>
       </div>
     </>
