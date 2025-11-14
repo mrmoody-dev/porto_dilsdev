@@ -1,0 +1,35 @@
+/* src/styles/_variables.scss */
+
+:root {
+  // Light Theme Palette (Modern & Clean)
+  --bg-color: #F0F2F5; // Soft light gray
+  --text-color: #2C3E50; // Dark charcoal
+  --primary-color: #007BFF; // Vibrant blue
+  --secondary-color: #6C757D; // Medium gray
+  --card-bg-color: #FFFFFF; // Pure white
+  --header-bg-color: rgba(255, 255, 255, 0.9); // Slightly more opaque
+  --shadow-color: rgba(0, 0, 0, 0.1); // More visible shadow
+
+  // Typography
+  --font-family-base: "Inter", sans-serif;
+  --font-size-base: 16px;
+  --font-size-h1: 3.5rem; // ~56px
+  --font-size-h2: 2.5rem; // ~40px
+  --font-size-h3: 1.75rem; // ~28px
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+.dark-theme {
+  // Dark Theme Palette (Deep & Sophisticated)
+  --bg-color: #1A202C; // Deep dark blue-gray
+  --text-color: #E2E8F0; // Off-white
+  --primary-color: #00BFFF; // Sky blue (vibrant)
+  --secondary-color: #4A5568; // Muted dark gray
+  --card-bg-color: #2D3748; // Slightly lighter dark blue-gray
+  --header-bg-color: rgba(26, 32, 44, 0.9); // Slightly more opaque
+  --shadow-color: rgba(0, 0, 0, 0.3); // More visible shadow
+}
