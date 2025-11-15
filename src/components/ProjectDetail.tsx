@@ -61,11 +61,6 @@ function ProjectDetail() {
                 Lihat Proyek Live
               </a>
             )}
-            {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-                Lihat di GitHub
-              </a>
-            )}
           </div>
         </div>
         <div className="project-detail-right">
