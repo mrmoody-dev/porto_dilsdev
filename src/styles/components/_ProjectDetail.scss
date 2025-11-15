@@ -25,6 +25,48 @@
   }
 }
 
+.project-slider {
+  .slick-arrow {
+    background-color: rgba(22, 33, 62, 0.5);
+    border-radius: 50%;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+
+    &:before {
+      font-size: 20px;
+      color: var(--accent-color);
+    }
+
+    &:hover {
+      background-color: rgba(22, 33, 62, 0.8);
+    }
+  }
+
+  .slick-prev {
+    left: 15px;
+  }
+
+  .slick-next {
+    right: 15px;
+  }
+
+  .slick-dots {
+    bottom: 15px;
+
+    li button:before {
+      font-size: 12px;
+      color: var(--text-secondary);
+      opacity: 0.8;
+    }
+
+    li.slick-active button:before {
+      color: var(--accent-color);
+      opacity: 1;
+    }
+  }
+}
+
 .project-detail-section {
   padding: 2rem 0;
   max-width: 1100px;
@@ -61,20 +103,92 @@
   }
 
   .project-detail-left {
+    max-width: 700px; /* Constrain the left column's width */
+    margin: 0 auto; /* Center the left column */
+    width: 100%; /* Ensure it takes full width up to max-width */
+
     .project-image {
       width: 100%;
-      height: auto;
+      height: 400px; /* Fixed height for consistency */
       border-radius: 12px;
       margin-bottom: 2rem;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       border: 1px solid var(--border-color);
-      object-fit: cover;
+      object-fit: contain; /* Ensure image fits within bounds */
+      background-color: var(--left-column-bg); /* Background for images that don't fill */
+    }
+
+    .project-slider {
+      margin-bottom: 2rem; /* Space below the slider */
+      width: 100%; /* Ensure slider takes full width of its container */
+
+      .slick-list {
+        overflow: hidden; /* Hide overflow from images */
+        border-radius: 12px; /* Match container border-radius */
+      }
+
+      .slick-track {
+        display: flex !important; /* Ensure flex behavior for slides */
+      }
+
+      .slick-slide {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        height: auto; /* Allow height to adjust */
+
+        div {
+          width: 100%;
+        }
+      }
+
+      .slick-arrow {
+        background-color: rgba(22, 33, 62, 0.7); /* Darker background for arrows */
+        border-radius: 50%;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        transition: background-color 0.3s ease;
+
+        &:before {
+          font-size: 20px;
+          color: var(--accent-color);
+        }
+
+        &:hover {
+          background-color: rgba(22, 33, 62, 1); /* Solid on hover */
+        }
+      }
+
+      .slick-prev {
+        left: 15px;
+      }
+
+      .slick-next {
+        right: 15px;
+      }
+
+      .slick-dots {
+        bottom: 15px;
+
+        li button:before {
+          font-size: 12px;
+          color: var(--text-secondary);
+          opacity: 0.8;
+        }
+
+        li.slick-active button:before {
+          color: var(--accent-color);
+          opacity: 1;
+        }
+      }
     }
 
     .project-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      width: 100%; /* Ensure links take full width */
 
       .project-link {
         flex-grow: 1;

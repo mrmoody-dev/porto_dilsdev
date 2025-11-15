@@ -12,17 +12,17 @@ const portfolioImages = [
 ];
 
 const servicesData = [
-  { icon: <FaGlobe />, title: 'Website Development', description: 'Developed and maintained various websites, including seventhsense.id.' },
-  { icon: <FaUsers />, title: 'Membership System', description: 'Implemented and managed membership systems, such as member.aspikom.org.' },
-  { icon: <FaCalendarAlt />, title: 'Conference Website', description: 'Built conference websites, including iicacs.com (2024).' },
-  { icon: <FaEnvelope />, title: 'Online Letter System', description: 'Developed online letter systems, like suratonline for Budiluhur.' },
-  { icon: <FaServer />, title: 'Server Migration', description: 'Successfully migrated servers for various organizations (aspikom.org, radiobudiluhur, member.aspikom.org, makadaya.org).' },
+  { id: "website-development", icon: <FaGlobe />, title: 'Website Development', description: 'Developing responsive and performant websites from the ground up.' },
+  { id: "membership-system", icon: <FaUsers />, title: 'Membership System', description: 'Implementing and managing full-featured membership systems.' },
+  { id: "conference-website", icon: <FaCalendarAlt />, title: 'Conference Website', description: 'Building websites for international conferences, including registration and abstract management.' },
+  { id: "online-letter-system", icon: <FaEnvelope />, title: 'Online Letter System', description: 'Developing online letter submission and approval workflow systems.' },
+  { id: "server-migration", icon: <FaServer />, title: 'Server Migration', description: 'Successfully migrated servers and content for various organizations like Aspikom, Radio Budi Luhur, and Makadaya.' },
 ];
 
 // Combine data
 const workAndServices = servicesData.map(service => ({
   ...service,
-  images: portfolioImages.filter(image => image.alt === service.title),
+  projects: allProjects.filter(project => project.serviceId === service.id),
 }));
 
 const Portfolio: React.FC = () => {
@@ -63,7 +63,7 @@ const Portfolio: React.FC = () => {
               <div className="portfolio-grid" style={{ marginTop: '1.5rem' }}>
                 {activeService.projects.map((project) => (
                   <Link to={`/project/${project.id}`} key={project.id} className="portfolio-item">
-                    <img src={project.image} alt={project.title} />
+                    <img src={Array.isArray(project.image) ? project.image[0] : project.image} alt={project.title} />
                     <div className="portfolio-overlay">
                       <h4>{project.title}</h4>
                     </div>
