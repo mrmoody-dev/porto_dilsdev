@@ -1,7 +1,8 @@
 // src/components/ProjectDetail.jsx
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { allProjects } from "../data/projects"; // Impor data dari file terpusat
+import { FaCode, FaUserTie, FaExclamationTriangle, FaArrowLeft } from 'react-icons/fa';
 
 function ProjectDetail() {
   const { id } = useParams();
@@ -13,15 +14,52 @@ function ProjectDetail() {
 
   return (
     <section className="project-detail-section">
-      <div className="project-detail-content">
+      <Link to="/" className="back-to-home-link">
+        <FaArrowLeft />
+        <span>Back to Home</span>
+      </Link>
+
+      <div className="project-detail-header">
         <h2>{project.title}</h2>
-        <img
-          src={project.image}
-          alt={project.title}
-          className="project-image"
-        />
         <p>{project.description}</p>
-        <p>{project.details}</p>
+      </div>
+      <div className="project-detail-columns">
+        <div className="project-detail-left">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="project-image"
+          />
+          <div className="project-links">
+            {project.liveUrl && (
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
+                Lihat Proyek Live
+              </a>
+            )}
+            {project.githubUrl && (
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
+                Lihat di GitHub
+              </a>
+            )}
+          </div>
+        </div>
+        <div className="project-detail-right">
+          <h3><FaCode /> Teknologi yang Digunakan</h3>
+          <ul>
+            {project.technologies.map((tech, index) => (
+              <li key={index}>{tech}</li>
+            ))}
+          </ul>
+
+          <h3><FaUserTie /> Peran Saya</h3>
+          <p>{project.role}</p>
+
+          <h3><FaExclamationTriangle /> Tantangan & Solusi</h3>
+          <p>{project.challenges}</p>
+
+          <h3>Detail Proyek</h3>
+          <p>{project.details}</p>
+        </div>
       </div>
     </section>
   );
