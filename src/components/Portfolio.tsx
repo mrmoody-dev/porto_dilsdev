@@ -61,10 +61,13 @@ const Portfolio: React.FC = () => {
 
             {activeService.images.length > 0 && (
               <div className="portfolio-grid" style={{ marginTop: '1.5rem' }}>
-                {activeService.images.map((item) => (
-                  <div key={item.id} className="portfolio-item">
-                    <img src={item.src} alt={item.alt} />
-                  </div>
+                {activeService.projects.map((project) => (
+                  <Link to={`/project/${project.id}`} key={project.id} className="portfolio-item">
+                    <img src={project.image} alt={project.title} />
+                    <div className="portfolio-overlay">
+                      <h4>{project.title}</h4>
+                    </div>
+                  </Link>
                 ))}
               </div>
             )}

@@ -290,28 +290,7 @@ a:hover {
 }
 
 
-/* Portfolio */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.portfolio-item {
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portfolio-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.portfolio-item img {
-  display: block;
-  width: 100%;
-}
+@import "./components/Portfolio";
 
 /* Testimonials */
 .testimonials-grid {
@@ -410,6 +389,8 @@ a:hover {
   padding: 2rem 0;
   border-top: 1px solid var(--border-color);
 }
+
+@import "./components/ProjectDetail";
 
 /* === MOBILE RESPONSIVE DESIGN === */
 @media (max-width: 992px) {

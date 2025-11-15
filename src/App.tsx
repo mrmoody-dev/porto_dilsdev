@@ -106,7 +106,7 @@ function App() {
       <ThemeProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
         </Routes>
         <ScrollToHash />
       </ThemeProvider>
