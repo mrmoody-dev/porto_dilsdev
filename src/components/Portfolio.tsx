@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
-import GorillaImage from '../assets/images/gorilla.png';
-import AdiImage from '../assets/images/adi.png';
+import { Link } from 'react-router-dom';
 import { FaGlobe, FaUsers, FaCalendarAlt, FaEnvelope, FaServer } from 'react-icons/fa';
-
-const portfolioImages = [
-  { id: 1, src: GorillaImage, alt: 'Website Development (seventhsense.id)' },
-  { id: 2, src: GorillaImage, alt: 'Membership System (member.aspikom.org)' },
-  { id: 3, src: GorillaImage, alt: 'Conference Website (iicacs.com - 2024)' },
-  { id: 4, src: AdiImage, alt: 'Online Letter System (suratonline - budiluhur)' },
-  { id: 5, src: GorillaImage, alt: 'Server Migration' }, // Re-using GorillaImage
-];
+import { allProjects } from '../data/projects'; // ADDED THIS IMPORT
 
 const servicesData = [
   { id: "website-development", icon: <FaGlobe />, title: 'Website Development', description: 'Developing responsive and performant websites from the ground up.' },
@@ -59,7 +51,7 @@ const Portfolio: React.FC = () => {
               <p className="service-description">{activeService.description}</p>
             </div>
 
-            {activeService.images.length > 0 && (
+            {activeService.projects.length > 0 && ( // FIXED TYPO HERE
               <div className="portfolio-grid" style={{ marginTop: '1.5rem' }}>
                 {activeService.projects.map((project) => (
                   <Link to={`/project/${project.id}`} key={project.id} className="portfolio-item">
