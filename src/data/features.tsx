@@ -1,27 +1,33 @@
-import featureIcon1 from "../assets/images/Logo BCS IT.png";
-import featureIcon2 from "../assets/images/Logo BCS IT.png";
-import featureIcon3 from "../assets/images/Logo BCS IT.png";
+import featureIcon1 from "../assets/images/logo_dilsdev.png";
 
 export const allFeatures = [
   {
     id: 1,
     icon: featureIcon1,
-    title: "UI/UX Design",
+    title: "Full-Stack Web Development",
     description:
-      "Desain antarmuka yang intuitif dan pengalaman pengguna yang mulus.",
+      "Membangun aplikasi web modern, responsif, dan scalable menggunakan React, Node.js, Python, & PHP.",
   },
   {
     id: 2,
-    icon: featureIcon2,
-    title: "Web Development",
+    icon: featureIcon1,
+    title: "E-Commerce & Digital Store",
     description:
-      "Membangun website responsif dan modern dengan teknologi terbaru.",
+      "Pengembangan platform toko online, top-up game, integrasi gerbang pembayaran otomatis, dan panel admin.",
   },
   {
     id: 3,
-    icon: featureIcon3,
-    title: "Migration Hosting & Domain",
+    icon: featureIcon1,
+    title: "Automation & Trading Bots",
     description:
-      "Melakukan pemindahan hosting dan domain ke layanan hosting terbaik.",
+      "Pengembangan bot trading crypto/forex, integrasi REST API/WebSocket, dan notifikasi real-time.",
+  },
+  {
+    id: 4,
+    icon: featureIcon1,
+    title: "Cloud & Server Migration",
+    description:
+      "Pengelolaan server VPS, migrasi hosting/domain, optimasi performa web, dan deployment cloud.",
   },
 ];
+

@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaGlobe, FaUsers, FaCalendarAlt, FaEnvelope, FaServer } from 'react-icons/fa';
-import { allProjects } from '../data/projects'; // ADDED THIS IMPORT
+import { FaGlobe, FaUsers, FaCalendarAlt, FaEnvelope, FaServer, FaShoppingCart, FaRobot, FaLayerGroup } from 'react-icons/fa';
+import { allProjects } from '../data/projects';
 
 const servicesData = [
-  { id: "website-development", icon: <FaGlobe />, title: 'Website Development', description: 'Developing responsive and performant websites from the ground up.' },
-  { id: "membership-system", icon: <FaUsers />, title: 'Membership System', description: 'Implementing and managing full-featured membership systems.' },
-  { id: "conference-website", icon: <FaCalendarAlt />, title: 'Conference Website', description: 'Building websites for international conferences, including registration and abstract management.' },
-  { id: "online-letter-system", icon: <FaEnvelope />, title: 'Online Letter System', description: 'Developing online letter submission and approval workflow systems.' },
-  { id: "server-migration", icon: <FaServer />, title: 'Server Migration', description: 'Successfully migrated servers and content for various organizations like Aspikom, Radio Budi Luhur, and Makadaya.' },
+  { id: "all", icon: <FaLayerGroup />, title: 'All Work & Projects', description: 'Daftar portofolio lengkap pengembangan aplikasi web, platform e-commerce, bot sistem otomasi, dan portal enterprise.' },
+  { id: "ecommerce-platform", icon: <FaShoppingCart />, title: 'E-Commerce & Digital Store', description: 'Pengembangan platform toko online modern, game top-up store, integrasi payment gateway, dan manajemen transaksi otomatis.' },
+  { id: "automation-bot", icon: <FaRobot />, title: 'Automation & Trading Bots', description: 'Pengembangan bot trading algoritma crypto, data streaming WebSocket, REST API, dan notifikasi terintegrasi Telegram/Discord.' },
+  { id: "website-development", icon: <FaGlobe />, title: 'Full-Stack Web Development', description: 'Membangun aplikasi web responsif dan modern dari awal hingga tingkat produksi dengan React, Node.js, PHP, & Tailwind/SCSS.' },
+  { id: "membership-system", icon: <FaUsers />, title: 'Membership & Enterprise Systems', description: 'Sistem keanggotaan organisasi, manajemen pengguna, KTA digital, dan portal dokumentasi API.' },
+  { id: "conference-website", icon: <FaCalendarAlt />, title: 'Conference & Event Web', description: 'Website event dan pendaftaran konferensi taraf internasional lengkap dengan sistem verifikasi abstrak & pembayaran.' },
+  { id: "online-letter-system", icon: <FaEnvelope />, title: 'Online Approval Workflows', description: 'Sistem pengajuan surat digital dan alur persetujuan bertingkat terintegrasi.' },
+  { id: "server-migration", icon: <FaServer />, title: 'Cloud & Server Migration', description: 'Layanan migrasi server VPS/Cloud, pengelolaan domain, optimasi hosting, dan konfigurasi CI/CD.' },
 ];
 
 // Combine data
 const workAndServices = servicesData.map(service => ({
   ...service,
-  projects: allProjects.filter(project => project.serviceId === service.id),
+  projects: service.id === "all" ? allProjects : allProjects.filter(project => project.serviceId === service.id),
 }));
 
 const Portfolio: React.FC = () => {
-  // State to track the active tab, initialized with the first service's title
+  // State to track the active tab, initialized with "All Work & Projects"
   const [activeTab, setActiveTab] = useState(servicesData[0].title);
 
   // Find the currently active service object based on the activeTab state
@@ -51,13 +54,18 @@ const Portfolio: React.FC = () => {
               <p className="service-description">{activeService.description}</p>
             </div>
 
-            {activeService.projects.length > 0 && ( // FIXED TYPO HERE
+            {activeService.projects.length > 0 && (
               <div className="portfolio-grid" style={{ marginTop: '1.5rem' }}>
                 {activeService.projects.map((project) => (
                   <Link to={`/project/${project.id}`} key={project.id} className="portfolio-item">
                     <img src={Array.isArray(project.image) ? project.image[0] : project.image} alt={project.title} />
                     <div className="portfolio-overlay">
                       <h4>{project.title}</h4>
+                      {project.technologies && (
+                        <p style={{ fontSize: '0.8rem', opacity: 0.85, marginTop: '0.25rem' }}>
+                          {project.technologies.slice(0, 3).join(' • ')}
+                        </p>
+                      )}
                     </div>
                   </Link>
                 ))}
@@ -71,3 +79,4 @@ const Portfolio: React.FC = () => {
 };
 
 export default Portfolio;
+

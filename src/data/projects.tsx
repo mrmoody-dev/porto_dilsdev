@@ -1,4 +1,4 @@
-// src/data/projects.js
+// src/data/projects.tsx
 import projectImageMembership from "../assets/images/ss_member.aspikom_landingpage.jpg";
 import projectImageMembershipDashboard from "../assets/images/ss_member_aspikom_dashboard.png";
 import projectImageSeventhsense from "../assets/images/ss_seventhsense.jpg";
@@ -8,20 +8,64 @@ import projectImageSuratonlineDashboard from "../assets/images/suratonline_dashb
 import projectImageRadio from "../assets/images/ss_radiobuduluhur.jpg";
 import projectImageAspikom from "../assets/images/ss_aspikom_org.jpg";
 import projectImageMakadaya from "../assets/images/ss_makadaya.jpg";
+import projectImageWildstore from "../assets/images/wildstore_preview.jpg";
+import projectImageTradingBot from "../assets/images/tradingbot_preview.jpg";
 
 export const allProjects = [
   {
+    id: "wildstore-platform",
+    title: "Wildstore E-Commerce & Game Top-Up Platform",
+    image: projectImageWildstore,
+    description: "Platform E-Commerce Modern & Top-Up Game dengan integrasi Payment Gateway & Dashboard Transaksi Otomatis.",
+    details:
+      "Sistem e-commerce multi-niche lengkap dengan katalog produk digital/top-up game, integrasi gerbang pembayaran otomatis, saldo pengguna, manajemen transaksi real-time, dan panel admin berbasis web responsif.",
+    technologies: ["React", "TypeScript", "Vite", "Node.js", "Express", "PostgreSQL", "SCSS"],
+    role: "Full-Stack Developer",
+    challenges: "Mengintegrasikan callback payment gateway secara real-time dan mengoptimalkan performa UI dengan glassmorphism & animasi halus.",
+    liveUrl: "#",
+    githubUrl: "https://github.com/mrmoody-dev/wildstore",
+    serviceId: "ecommerce-platform",
+  },
+  {
+    id: "indodax-islm-bot",
+    title: "Indodax ISLM Automated Trading Bot & Analytics",
+    image: projectImageTradingBot,
+    description: "Bot Trading Algoritma Crypto terotomatisasi dengan analisis indikator teknis & notifikasi real-time.",
+    details:
+      "Sistem otomasi trading crypto yang mengeksekusi order beli/jual berdasarkan analisis indikator teknis (RSI, MACD, Moving Average), manajemen risiko saldo otomatis, data streaming WebSocket, serta notifikasi aktivitas harian ke Telegram/Discord.",
+    technologies: ["Python", "Node.js", "REST API", "WebSocket", "Telegram Bot API", "Crypto Exchange API"],
+    role: "Backend & Automation Engineer",
+    challenges: "Memastikan latensi eksekusi order yang sangat rendah dan algoritma manajemen risiko saldo akun yang presisi.",
+    liveUrl: "#",
+    githubUrl: "https://github.com/mrmoody-dev/indodax-islm-bot",
+    serviceId: "automation-bot",
+  },
+  {
     id: "aplikasi-membership",
-    title: "Aplikasi Membership",
+    title: "Aplikasi Membership ASPIKOM",
     image: [projectImageMembership, projectImageMembershipDashboard],
     description: "Website Membership organisasi asosiasi pendidikan ilmu komunikasi se-indonesia.",
     details:
       "Sistem keanggotaan lengkap dengan pendaftaran, pembayaran, manajemen profil, dan akses ke konten eksklusif untuk anggota ASPIKOM.",
     technologies: ["CodeIgniter 4", "PHP", "MySQL", "Bootstrap", "jQuery"],
-    role: "Full-stack Developer",
+    role: "Full-Stack Developer",
     challenges: "Mengelola data anggota dalam jumlah besar dan memastikan keamanan data.",
     liveUrl: "https://member.aspikom.org",
     githubUrl: "https://github.com/your-username/aplikasi-membership",
+    serviceId: "membership-system",
+  },
+  {
+    id: "docs-member-aspikom",
+    title: "Portal Dokumentasi Member ASPIKOM",
+    image: projectImageMembershipDashboard,
+    description: "Portal dokumentasi teknis dan modul panduan sistem keanggotaan ASPIKOM.",
+    details:
+      "Portal dokumentasi komprehensif yang memuat panduan pengguna, dokumentasi API, dan panduan administrasi keanggotaan organisasi.",
+    technologies: ["React", "TypeScript", "Markdown", "Tailwind CSS"],
+    role: "Full-Stack Developer",
+    challenges: "Menyusun struktur dokumentasi interaktif yang mudah dipahami oleh anggota non-teknis.",
+    liveUrl: "#",
+    githubUrl: "https://github.com/mrmoody-dev/docs-member-aspikom",
     serviceId: "membership-system",
   },
   {
@@ -46,7 +90,7 @@ export const allProjects = [
     details:
       "Aplikasi web untuk melakukan pendaftaran peserta conference taraf internasional, termasuk manajemen abstrak dan pembayaran.",
     technologies: ["CodeIgniter 3", "PHP", "MySQL", "REST API"],
-    role: "Full-stack Developer",
+    role: "Full-Stack Developer",
     challenges: "Mengintegrasikan berbagai metode pembayaran dan mengelola data pendaftaran yang kompleks.",
     liveUrl: "https://iicacs.com",
     githubUrl: "https://github.com/your-username/aplikasi-pendaftaran",
@@ -60,7 +104,7 @@ export const allProjects = [
     details:
       "Memungkinkan mahasiswa untuk mengajukan berbagai jenis surat secara online, melacak status pengajuan, dan menerima notifikasi.",
     technologies: ["CodeIgniter 3", "PHP", "MySQL", "Bootstrap"],
-    role: "Full-stack Developer",
+    role: "Full-Stack Developer",
     challenges: "Membangun alur persetujuan (approval workflow) yang dinamis dan terintegrasi dengan sistem internal.",
     liveUrl: "#",
     githubUrl: "https://github.com/your-username/suratonline-ubl",
@@ -78,7 +122,7 @@ export const allProjects = [
     challenges: "Optimalisasi performa streaming audio agar lancar di berbagai perangkat.",
     liveUrl: "https://radiobudiluhur.com",
     githubUrl: "#",
-    serviceId: "server-migration",
+    serviceId: "website-development",
   },
   {
     id: "website-aspikom",
@@ -109,3 +153,4 @@ export const allProjects = [
     serviceId: "server-migration",
   },
 ];
+
