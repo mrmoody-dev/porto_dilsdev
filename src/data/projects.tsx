@@ -10,6 +10,8 @@ import projectImageAspikom from "../assets/images/ss_aspikom_org.jpg";
 import projectImageMakadaya from "../assets/images/ss_makadaya.jpg";
 import projectImageWildstore from "../assets/images/wildstore_preview.jpg";
 import projectImageTradingBot from "../assets/images/tradingbot_preview.jpg";
+import projectImageSimobe from "../assets/images/simobe_preview.jpg";
+import projectImageClipper from "../assets/images/clipper_preview.jpg";
 
 export const allProjects = [
   {
@@ -38,6 +40,34 @@ export const allProjects = [
     challenges: "Memastikan latensi eksekusi order yang sangat rendah dan algoritma manajemen risiko saldo akun yang presisi.",
     liveUrl: "#",
     githubUrl: "https://github.com/mrmoody-dev/indodax-islm-bot",
+    serviceId: "automation-bot",
+  },
+  {
+    id: "simobe-aspikom",
+    title: "SIMOBE - Outcome-Based Education System",
+    image: projectImageSimobe,
+    description: "Sistem Informasi Manajemen Kurikulum OBE dengan Matrix View interaktif & Spider Chart CPL.",
+    details:
+      "Sistem pemetaan kurikulum berbasis OBE (Outcome-Based Education) multi-tenant untuk institusi pendidikan tinggi. Fitur unggulan meliputi perumusan Capaian Pembelajaran Lulusan (CPL), matriks interaktif CPL vs Mata Kuliah, pemetaan CPMK dosen, grafik radar (spider chart) kompetensi mahasiswa, serta otomatisasi laporan akreditasi BAN-PT/LAM.",
+    technologies: ["Laravel", "PHP", "Vite", "Blade", "MySQL", "Tailwind CSS", "Chart.js"],
+    role: "Full-Stack Developer",
+    challenges: "Mengkonversi tabel matriks pemetaan kurikulum Excel yang rumit menjadi antarmuka web interaktif yang responsif.",
+    liveUrl: "#",
+    githubUrl: "https://github.com/mrmoody-dev/obe-aspikom",
+    serviceId: "membership-system",
+  },
+  {
+    id: "islami-shorts-engine",
+    title: "AI Smart Clipper & Automated Video Generator Engine",
+    image: projectImageClipper,
+    description: "Sistem Otomasi Generator Video Shorts & Smart Clipper AI berbasis Gemini 2.0 Flash & FFmpeg.",
+    details:
+      "Pipeline otomatisasi produksi konten video pendek (Shorts/Reels/TikTok). Fitur utama: AI Script Generator, Text-To-Speech (Edge TTS) dengan timing presisi, Smart Clipper AI untuk mendeteksi momen viral dari video YouTube secara otomatis, komposisi video FFmpeg (efek Ken Burns & karaoke subtitle), serta Dashboard Web Flask untuk review dan upload terjadwal ke YouTube API.",
+    technologies: ["Python", "Flask", "Gemini AI API", "Edge TTS", "FFmpeg", "yt-dlp", "Pillow"],
+    role: "AI Systems & Automation Engineer",
+    challenges: "Memproses transkripsi audio berdurasi panjang dalam potongan chunked serta memastikan sinkronisasi timing subtitle karaoke yang presisi.",
+    liveUrl: "#",
+    githubUrl: "https://github.com/mrmoody-dev/islami-shorts",
     serviceId: "automation-bot",
   },
   {
@@ -153,4 +183,5 @@ export const allProjects = [
     serviceId: "server-migration",
   },
 ];
+
 
