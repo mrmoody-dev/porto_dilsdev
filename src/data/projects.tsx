@@ -14,6 +14,20 @@ import projectImageClipper from "../assets/images/clipper_preview.jpg";
 
 export const allProjects = [
   {
+    id: "presensi-mybcs",
+    title: "Presensi MyBCS - Web System & Mobile API",
+    image: projectImageMembershipDashboard,
+    description: "Sistem Presensi Karyawan terintegrasi Web Admin Dashboard & REST API Mobile Backend.",
+    details:
+      "Sistem manajemen absensi dan presensi karyawan terintegrasi untuk PT BCS Logistics. Fitur unggulan meliputi web dashboard admin (PHP/CodeIgniter), verifikasi lokasi GPS geo-tagging, serta penyediaan layanan RESTful API aman untuk aplikasi mobile presensi.",
+    technologies: ["PHP", "CodeIgniter 4", "MySQL", "REST API", "Bootstrap", "Geofencing"],
+    role: "Full-Stack & Backend Mobile Engineer",
+    challenges: "Merancang arsitektur RESTful API yang aman dan responsif untuk sinkronisasi data presensi aplikasi mobile secara real-time.",
+    liveUrl: "#",
+    githubUrl: "#",
+    serviceId: "membership-system",
+  },
+  {
     id: "indodax-trading-bot",
     title: "Indodax Automated Trading Bot & Analytics",
     image: projectImageTradingBot,
@@ -27,7 +41,6 @@ export const allProjects = [
     githubUrl: "https://github.com/mrmoody-dev/indodax-trading-bot",
     serviceId: "automation-bot",
   },
-
   {
     id: "simobe-aspikom",
     title: "SIMOBE - Outcome-Based Education System",
