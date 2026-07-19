@@ -60,3 +60,5 @@ pnpm-lock.yaml
 .npm/
 .eslintcache
 .prettiercache
+.vercel
+.env*

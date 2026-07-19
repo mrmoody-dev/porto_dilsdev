@@ -10,7 +10,6 @@ import "./styles/main.scss";
 import Hero from "./components/Hero";
 import Portfolio from "./components/Portfolio";
 import About from "./components/About";
-import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import MobileNav from "./components/MobileNav";
@@ -87,12 +86,10 @@ function Home() {
         <section id="about">
           <About />
         </section>
-        <section id="testimonials">
-          <Testimonials />
-        </section>
         <section id="contact">
           <Contact />
         </section>
+
         <Footer />
       </main>
     </div>

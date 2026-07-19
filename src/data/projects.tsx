@@ -9,8 +9,13 @@ import projectImageRadio from "../assets/images/ss_radiobuduluhur.jpg";
 import projectImageAspikom from "../assets/images/ss_aspikom_org.jpg";
 import projectImageMakadaya from "../assets/images/ss_makadaya.jpg";
 import projectImageTradingBot from "../assets/images/tradingbot_preview.jpg";
+import projectImageTradingBotAnalytics from "../assets/images/tradingbot_analytics.jpg";
 import projectImageSimobe from "../assets/images/simobe_preview.jpg";
+import projectImageSimobeDashboard from "../assets/images/simobe_dashboard_real.png";
+import projectImageSimobeCpl from "../assets/images/simobe_cpl.png";
+import projectImageSimobeRps from "../assets/images/simobe_rps.png";
 import projectImageClipper from "../assets/images/clipper_preview.jpg";
+import projectImageClipperTimeline from "../assets/images/clipper_timeline.jpg";
 
 export const allProjects = [
   {
@@ -30,7 +35,7 @@ export const allProjects = [
   {
     id: "indodax-trading-bot",
     title: "Indodax Automated Trading Bot & Analytics",
-    image: projectImageTradingBot,
+    image: [projectImageTradingBot, projectImageTradingBotAnalytics],
     description: "Bot Trading Algoritma Crypto terotomatisasi dengan analisis indikator teknis & notifikasi real-time.",
     details:
       "Sistem otomasi trading crypto yang mengeksekusi order beli/jual berdasarkan analisis indikator teknis (RSI, MACD, Moving Average), manajemen risiko saldo otomatis, data streaming WebSocket, serta notifikasi aktivitas harian ke Telegram/Discord.",
@@ -44,7 +49,7 @@ export const allProjects = [
   {
     id: "simobe-aspikom",
     title: "SIMOBE - Outcome-Based Education System",
-    image: projectImageSimobe,
+    image: [projectImageSimobe, projectImageSimobeDashboard, projectImageSimobeCpl, projectImageSimobeRps],
     description: "Sistem Informasi Manajemen Kurikulum OBE dengan Matrix View interaktif & Spider Chart CPL.",
     details:
       "Sistem pemetaan kurikulum berbasis OBE (Outcome-Based Education) multi-tenant untuk institusi pendidikan tinggi. Fitur unggulan meliputi perumusan Capaian Pembelajaran Lulusan (CPL), matriks interaktif CPL vs Mata Kuliah, pemetaan CPMK dosen, grafik radar (spider chart) kompetensi mahasiswa, serta otomatisasi laporan akreditasi BAN-PT/LAM.",
@@ -58,7 +63,7 @@ export const allProjects = [
   {
     id: "islami-shorts-engine",
     title: "AI Smart Clipper & Automated Video Generator Engine",
-    image: projectImageClipper,
+    image: [projectImageClipper, projectImageClipperTimeline],
     description: "Sistem Otomasi Generator Video Shorts & Smart Clipper AI berbasis Gemini 2.0 Flash & FFmpeg.",
     details:
       "Pipeline otomatisasi produksi konten video pendek (Shorts/Reels/TikTok). Fitur utama: AI Script Generator, Text-To-Speech (Edge TTS) dengan timing presisi, Smart Clipper AI untuk mendeteksi momen viral dari video YouTube secara otomatis, komposisi video FFmpeg (efek Ken Burns & karaoke subtitle), serta Dashboard Web Flask untuk review dan upload terjadwal ke YouTube API.",
@@ -86,7 +91,7 @@ export const allProjects = [
   {
     id: "docs-member-aspikom",
     title: "Portal Dokumentasi Member ASPIKOM",
-    image: projectImageMembershipDashboard,
+    image: [projectImageMembershipDashboard, projectImageMembership],
     description: "Portal dokumentasi teknis dan modul panduan sistem keanggotaan ASPIKOM.",
     details:
       "Portal dokumentasi komprehensif yang memuat panduan pengguna, dokumentasi API, dan panduan administrasi keanggotaan organisasi.",
@@ -100,7 +105,7 @@ export const allProjects = [
   {
     id: "website-agency",
     title: "Website Agency Seventhsense",
-    image: projectImageSeventhsense,
+    image: [projectImageSeventhsense, projectImageMembership],
     description: "Website Agency miliki Seventhsense.",
     details:
       "Website untuk profiling agency dan talent-talentnya, menampilkan portofolio dan layanan yang ditawarkan.",
@@ -114,7 +119,7 @@ export const allProjects = [
   {
     id: "aplikasi-pendaftaran",
     title: "Aplikasi Pendaftaran Peserta Conference",
-    image: projectImageIicacs,
+    image: [projectImageIicacs, projectImageMembershipDashboard],
     description: "Aplikasi untuk pendaftaran peserta conference taraf internasional (IICACS).",
     details:
       "Aplikasi web untuk melakukan pendaftaran peserta conference taraf internasional, termasuk manajemen abstrak dan pembayaran.",
@@ -142,7 +147,7 @@ export const allProjects = [
   {
     id: "website-radio",
     title: "Website Radio Budi Luhur",
-    image: projectImageRadio,
+    image: [projectImageRadio, projectImageAspikom],
     description: "Website streaming dan informasi untuk Radio Budi Luhur.",
     details:
       "Menampilkan jadwal siaran, profil penyiar, dan pemutar radio streaming live.",
@@ -156,7 +161,7 @@ export const allProjects = [
   {
     id: "website-aspikom",
     title: "Website ASPIKOM",
-    image: projectImageAspikom,
+    image: [projectImageAspikom, projectImageMembership],
     description: "Website profil dan pusat informasi untuk ASPIKOM.",
     details:
       "Website resmi Asosiasi Pendidikan Tinggi Ilmu Komunikasi (ASPIKOM) sebagai pusat informasi kegiatan, berita, dan keanggotaan.",
@@ -170,7 +175,7 @@ export const allProjects = [
   {
     id: "website-makadaya",
     title: "Website Makadaya",
-    image: projectImageMakadaya,
+    image: [projectImageMakadaya, projectImageSeventhsense],
     description: "Website company profile untuk Makadaya.",
     details:
       "Company profile yang menampilkan layanan, portofolio, dan informasi kontak untuk perusahaan.",
