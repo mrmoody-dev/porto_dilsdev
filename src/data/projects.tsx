@@ -14,8 +14,8 @@ import projectImageClipper from "../assets/images/clipper_preview.jpg";
 
 export const allProjects = [
   {
-    id: "indodax-islm-bot",
-    title: "Indodax ISLM Automated Trading Bot & Analytics",
+    id: "indodax-trading-bot",
+    title: "Indodax Automated Trading Bot & Analytics",
     image: projectImageTradingBot,
     description: "Bot Trading Algoritma Crypto terotomatisasi dengan analisis indikator teknis & notifikasi real-time.",
     details:
@@ -24,9 +24,10 @@ export const allProjects = [
     role: "Backend & Automation Engineer",
     challenges: "Memastikan latensi eksekusi order yang sangat rendah dan algoritma manajemen risiko saldo akun yang presisi.",
     liveUrl: "#",
-    githubUrl: "https://github.com/mrmoody-dev/indodax-islm-bot",
+    githubUrl: "https://github.com/mrmoody-dev/indodax-trading-bot",
     serviceId: "automation-bot",
   },
+
   {
     id: "simobe-aspikom",
     title: "SIMOBE - Outcome-Based Education System",
