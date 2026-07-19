@@ -8,14 +8,19 @@ import projectImageSuratonlineDashboard from "../assets/images/suratonline_dashb
 import projectImageRadio from "../assets/images/ss_radiobuduluhur.jpg";
 import projectImageAspikom from "../assets/images/ss_aspikom_org.jpg";
 import projectImageMakadaya from "../assets/images/ss_makadaya.jpg";
-import projectImageTradingBot from "../assets/images/tradingbot_preview.jpg";
-import projectImageTradingBotAnalytics from "../assets/images/tradingbot_analytics.jpg";
+
+// Real screenshots captured by user
+import projectImageTradingBotSS1 from "../assets/images/tradingbot_ss1.png";
+import projectImageTradingBotSS2 from "../assets/images/tradingbot_ss2.png";
+import projectImageTradingBotSS3 from "../assets/images/tradingbot_ss3.png";
+
+import projectImageClipperSS1 from "../assets/images/clipper_ss1.png";
+import projectImageClipperSS2 from "../assets/images/clipper_ss2.png";
+
 import projectImageSimobe from "../assets/images/simobe_preview.jpg";
 import projectImageSimobeDashboard from "../assets/images/simobe_dashboard_real.png";
 import projectImageSimobeCpl from "../assets/images/simobe_cpl.png";
 import projectImageSimobeRps from "../assets/images/simobe_rps.png";
-import projectImageClipper from "../assets/images/clipper_preview.jpg";
-import projectImageClipperTimeline from "../assets/images/clipper_timeline.jpg";
 
 export const allProjects = [
   {
@@ -35,7 +40,7 @@ export const allProjects = [
   {
     id: "indodax-trading-bot",
     title: "Indodax Automated Trading Bot & Analytics",
-    image: [projectImageTradingBot, projectImageTradingBotAnalytics],
+    image: [projectImageTradingBotSS1, projectImageTradingBotSS2, projectImageTradingBotSS3],
     description: "Bot Trading Algoritma Crypto terotomatisasi dengan analisis indikator teknis & notifikasi real-time.",
     details:
       "Sistem otomasi trading crypto yang mengeksekusi order beli/jual berdasarkan analisis indikator teknis (RSI, MACD, Moving Average), manajemen risiko saldo otomatis, data streaming WebSocket, serta notifikasi aktivitas harian ke Telegram/Discord.",
@@ -63,7 +68,7 @@ export const allProjects = [
   {
     id: "islami-shorts-engine",
     title: "AI Smart Clipper & Automated Video Generator Engine",
-    image: [projectImageClipper, projectImageClipperTimeline],
+    image: [projectImageClipperSS1, projectImageClipperSS2],
     description: "Sistem Otomasi Generator Video Shorts & Smart Clipper AI berbasis Gemini 2.0 Flash & FFmpeg.",
     details:
       "Pipeline otomatisasi produksi konten video pendek (Shorts/Reels/TikTok). Fitur utama: AI Script Generator, Text-To-Speech (Edge TTS) dengan timing presisi, Smart Clipper AI untuk mendeteksi momen viral dari video YouTube secara otomatis, komposisi video FFmpeg (efek Ken Burns & karaoke subtitle), serta Dashboard Web Flask untuk review dan upload terjadwal ke YouTube API.",
