@@ -8,26 +8,11 @@ import projectImageSuratonlineDashboard from "../assets/images/suratonline_dashb
 import projectImageRadio from "../assets/images/ss_radiobuduluhur.jpg";
 import projectImageAspikom from "../assets/images/ss_aspikom_org.jpg";
 import projectImageMakadaya from "../assets/images/ss_makadaya.jpg";
-import projectImageWildstore from "../assets/images/wildstore_preview.jpg";
 import projectImageTradingBot from "../assets/images/tradingbot_preview.jpg";
 import projectImageSimobe from "../assets/images/simobe_preview.jpg";
 import projectImageClipper from "../assets/images/clipper_preview.jpg";
 
 export const allProjects = [
-  {
-    id: "wildstore-platform",
-    title: "Wildstore E-Commerce & Game Top-Up Platform",
-    image: projectImageWildstore,
-    description: "Platform E-Commerce Modern & Top-Up Game dengan integrasi Payment Gateway & Dashboard Transaksi Otomatis.",
-    details:
-      "Sistem e-commerce multi-niche lengkap dengan katalog produk digital/top-up game, integrasi gerbang pembayaran otomatis, saldo pengguna, manajemen transaksi real-time, dan panel admin berbasis web responsif.",
-    technologies: ["React", "TypeScript", "Vite", "Node.js", "Express", "PostgreSQL", "SCSS"],
-    role: "Full-Stack Developer",
-    challenges: "Mengintegrasikan callback payment gateway secara real-time dan mengoptimalkan performa UI dengan glassmorphism & animasi halus.",
-    liveUrl: "#",
-    githubUrl: "https://github.com/mrmoody-dev/wildstore",
-    serviceId: "ecommerce-platform",
-  },
   {
     id: "indodax-islm-bot",
     title: "Indodax ISLM Automated Trading Bot & Analytics",
@@ -183,5 +168,3 @@ export const allProjects = [
     serviceId: "server-migration",
   },
 ];
-
-
