@@ -1,112 +1,101 @@
-import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
-import "./styles/main.scss";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useParams, useNavigate } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HeroProfile from './components/HeroProfile';
+import ProjectsSection from './components/ProjectsSection';
+import JobFinderSection from './components/JobFinderSection';
+import EducationSection from './components/EducationSection';
+import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
+import ProjectDetailModal, { ProjectItem } from './components/ProjectDetailModal';
+import { allProjects } from './data/projects';
+import './styles/main.scss';
 
-import Hero from "./components/Hero";
-import Portfolio from "./components/Portfolio";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import MobileNav from "./components/MobileNav";
-import ProjectDetail from "./components/ProjectDetail"; // Keep ProjectDetail
-import { FaInstagram } from 'react-icons/fa';
+// Single Page Main App
+function MainPortfolio() {
+  const [activeSection, setActiveSection] = useState<string>('profile');
 
-const navLinks = [
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#about', label: 'About Me' },
-  { href: '#contact', label: 'Contact' },
-];
-
-// Komponen yang menangani gulir
-function ScrollToHash() {
-  const location = useLocation();
+  // Track active section on scroll
   useEffect(() => {
-    if (location.hash) {
-      const element = document.getElementById(location.hash.slice(1));
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 300); // Menambah sedikit jeda
+    const handleScroll = () => {
+      const sections = ['profile', 'projects', 'job-finder', 'education', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
       }
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    setActiveSection(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [location]);
-  return null;
+  };
+
+  return (
+    <div style={{ minHeight: '100vh', background: '#0B0F19' }}>
+      <Navbar activeSection={activeSection} setActiveSection={scrollToSection} />
+      <main>
+        <HeroProfile
+          onExploreProjects={() => scrollToSection('projects')}
+          onExploreJobs={() => scrollToSection('job-finder')}
+        />
+        <ProjectsSection />
+        <JobFinderSection />
+        <EducationSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
-import { ThemeProvider } from "./context/ThemeContext";
+// Standalone Project Detail Route Page Handler
+function StandaloneProjectRoute() {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
-// Komponen Home untuk halaman utama
-function Home() {
+  const project = allProjects.find((p) => p.id === id);
+
+  if (!project) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#FFF' }}>
+        <h2>Proyek Tidak Ditemukan</h2>
+        <button onClick={() => navigate('/')} className="btn-cyan" style={{ marginTop: '16px' }}>
+          Kembali ke Portofolio Utama
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <>
-      <MobileNav />
-      <div className="app-container">
-      {/* === LEFT COLUMN (STICKY) === */}
-      <aside className="left-column">
-        <div className="left-column-inner">
-          <a href="#home" className="logo">
-            <h1>dilsdev</h1>
-            <p className="tagline">Web Developer</p>
-          </a>
-
-          <nav className="main-nav">
-            <ul>
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href}>{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="social-links">
-            <a href="https://www.instagram.com/batari.wulan" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram />
-            </a>
-            {/* Add other social links here if needed */}
-          </div>
-        </div>
-      </aside>
-
-      {/* === RIGHT COLUMN (SCROLLABLE) === */}
-      <main className="right-column">
-        <section id="home">
-          <Hero />
-        </section>
-        <section id="portfolio">
-          <Portfolio />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
-
-        <Footer />
-      </main>
+    <div style={{ minHeight: '100vh', background: '#0B0F19' }}>
+      <ProjectDetailModal project={project as ProjectItem} onClose={() => navigate('/')} />
     </div>
-    </>
   );
 }
 
 function App() {
   return (
     <Router>
-      <ThemeProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
-        </Routes>
-        <ScrollToHash />
-      </ThemeProvider>
+      <Routes>
+        <Route path="/" element={<MainPortfolio />} />
+        <Route path="/project/:id" element={<StandaloneProjectRoute />} />
+      </Routes>
     </Router>
   );
 }
