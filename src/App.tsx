@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 // Image Imports
 import imgAdi from "./assets/images/adi.png";
-import imgLogo from "./assets/images/logo_dilsdev.png";
 import imgTradingBot1 from "./assets/images/tradingbot_ss1.png";
 import imgTradingBot2 from "./assets/images/tradingbot_ss2.png";
 import imgTradingBot3 from "./assets/images/tradingbot_ss3.png";
@@ -40,24 +39,24 @@ interface ProjectItem {
 
 const projectsData: ProjectItem[] = [
   {
-    id: "presensi-mybcs",
-    title: "Presensi MyBCS - Web System & Mobile API",
+    id: "simobe-aspikom",
+    title: "SIMOBE - Sistem Informasi Kurikulum OBE",
     category: "fullstack",
-    categoryBadge: "Fullstack & Mobile API",
+    categoryBadge: "Fullstack Web System",
     stars: "5.0",
-    description: "Sistem Presensi Karyawan terintegrasi Web Admin Dashboard (PHP/CodeIgniter 4) & REST API Mobile Backend dengan GPS Geofencing.",
-    fullDesc: "Sistem manajemen absensi dan presensi karyawan terintegrasi untuk PT BCS Logistics. Menangani verifikasi lokasi GPS geo-tagging, manajemen shift karyawan, rekap kehadiran otomatis, serta penyediaan layanan RESTful API aman untuk aplikasi mobile presensi.",
+    description: "Sistem Informasi Kurikulum OBE (Outcome-Based Education) perguruan tinggi dengan Matriks CPL-MK & Grafik Evaluasi.",
+    fullDesc: "Mengembangkan sistem manajemen kurikulum berbasis Outcome-Based Education (OBE) untuk perguruan tinggi. Memungkinkan pemetaan Capaian Pembelajaran Lulusan (CPL), matriks interaktif CPL vs Mata Kuliah, pemetaan CPMK dosen, grafik radar kompetensi mahasiswa, serta otomatisasi laporan akreditasi BAN-PT/LAM.",
     highlights: [
-      "Arsitektur RESTful API aman dengan token JWT & enkripsi data presensi.",
-      "Integrasi modul Geofencing GPS untuk pencegahan kecurangan lokasi absensi.",
-      "Dashboard admin interaktif dengan grafik kehadiran real-time & ekspor laporan Excel/PDF.",
-      "Optimasi query basis data MySQL untuk menangani log ribuan karyawan harian."
+      "Matriks pemetaan interaktif CPL vs Mata Kuliah berbasis Web spreadsheet-like interface.",
+      "Generator otomatis RPS (Rencana Pembelajaran Semester) berstandar pendidikan tinggi.",
+      "Visualisasi Radar Chart (Spider Chart) kompetensi mahasiswa berbasis Chart.js.",
+      "Manajemen multi-tenant untuk prodi dan fakultas berbeda."
     ],
-    tech: ["PHP", "CodeIgniter 4", "MySQL", "REST API", "Bootstrap", "Geofencing"],
-    mainImage: imgMembershipDash,
-    gallery: [imgMembershipDash, imgMembership],
+    tech: ["Laravel", "PHP", "Vite", "Blade", "MySQL", "Tailwind CSS", "Chart.js"],
+    mainImage: imgSimobe,
+    gallery: [imgSimobe, imgSimobeDash, imgSimobeCpl, imgSimobeRps],
     liveUrl: "#",
-    githubUrl: "#"
+    githubUrl: "https://github.com/mrmoody-dev/obe-aspikom"
   },
   {
     id: "indodax-trading-bot",
@@ -80,26 +79,6 @@ const projectsData: ProjectItem[] = [
     githubUrl: "https://github.com/mrmoody-dev/indodax-trading-bot"
   },
   {
-    id: "simobe-aspikom",
-    title: "SIMOBE - Outcome-Based Education System",
-    category: "fullstack",
-    categoryBadge: "Fullstack Web",
-    stars: "4.9",
-    description: "Sistem Informasi Manajemen Kurikulum OBE dengan Matrix View interaktif CPL vs Mata Kuliah & Radar Chart Kompetensi.",
-    fullDesc: "Sistem pemetaan kurikulum berbasis OBE (Outcome-Based Education) multi-tenant untuk institusi pendidikan tinggi. Menangani perumusan Capaian Pembelajaran Lulusan (CPL), matriks interaktif CPL vs Mata Kuliah, pemetaan CPMK dosen, grafik radar (spider chart) kompetensi mahasiswa, serta otomatisasi laporan akreditasi BAN-PT/LAM.",
-    highlights: [
-      "Matriks pemetaan interaktif CPL vs Mata Kuliah berbasis Web spreadsheet-like interface.",
-      "Generator otomatis RPS (Rencana Pembelajaran Semester) berstandar pendidikan tinggi.",
-      "Visualisasi Radar Chart kompetensi mahasiswa berbasis Chart.js & ApexCharts.",
-      "Manajemen multi-tenant untuk prodi dan fakultas berbeda."
-    ],
-    tech: ["Laravel", "PHP", "Vite", "Blade", "MySQL", "Tailwind CSS", "Chart.js"],
-    mainImage: imgSimobe,
-    gallery: [imgSimobe, imgSimobeDash, imgSimobeCpl, imgSimobeRps],
-    liveUrl: "#",
-    githubUrl: "https://github.com/mrmoody-dev/obe-aspikom"
-  },
-  {
     id: "islami-shorts-engine",
     title: "AI Smart Clipper & Video Generator Engine",
     category: "ai",
@@ -120,12 +99,32 @@ const projectsData: ProjectItem[] = [
     githubUrl: "https://github.com/mrmoody-dev/islami-shorts"
   },
   {
+    id: "presensi-mybcs",
+    title: "Presensi MyBCS - Web System & Mobile API",
+    category: "fullstack",
+    categoryBadge: "Fullstack & Mobile API",
+    stars: "4.9",
+    description: "Sistem Presensi Karyawan terintegrasi Web Admin Dashboard (PHP/CodeIgniter 4) & REST API Mobile Backend dengan GPS Geofencing.",
+    fullDesc: "Sistem manajemen absensi dan presensi karyawan terintegrasi untuk PT BCS Logistics. Menangani verifikasi lokasi GPS geo-tagging, manajemen shift karyawan, rekap kehadiran otomatis, serta penyediaan layanan RESTful API aman untuk aplikasi mobile presensi.",
+    highlights: [
+      "Arsitektur RESTful API aman dengan token JWT & enkripsi data presensi.",
+      "Integrasi modul Geofencing GPS untuk pencegahan kecurangan lokasi absensi.",
+      "Dashboard admin interaktif dengan grafik kehadiran real-time & ekspor laporan Excel/PDF.",
+      "Optimasi query basis data MySQL untuk menangani log ribuan karyawan harian."
+    ],
+    tech: ["PHP", "CodeIgniter 4", "MySQL", "REST API", "Bootstrap", "Geofencing"],
+    mainImage: imgMembershipDash,
+    gallery: [imgMembershipDash, imgMembership],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
     id: "aplikasi-membership",
-    title: "Aplikasi Membership ASPIKOM Org",
+    title: "Member.aspikom.org - Portal Keanggotaan ASPIKOM",
     category: "fullstack",
     categoryBadge: "Fullstack Web",
-    stars: "4.8",
-    description: "Website Membership resmi organisasi asosiasi pendidikan ilmu komunikasi se-Indonesia.",
+    stars: "4.9",
+    description: "Membangun sistem informasi keanggotaan organisasi komunikasi nasional ASPIKOM berbasis web guna merampingkan pendaftaran & verifikasi anggota.",
     fullDesc: "Sistem keanggotaan lengkap dengan pendaftaran online, verifikasi dokumen anggota, manajemen profil, akses konten eksklusif, dan penerbitan kartu anggota digital untuk ASPIKOM.",
     highlights: [
       "Manajemen ribuan data keanggotaan institusi & dosen ilmu komunikasi se-Indonesia.",
@@ -139,48 +138,12 @@ const projectsData: ProjectItem[] = [
     githubUrl: "#"
   },
   {
-    id: "docs-member-aspikom",
-    title: "Portal Dokumentasi Member ASPIKOM",
-    category: "fullstack",
-    categoryBadge: "Fullstack Web",
-    stars: "4.8",
-    description: "Portal dokumentasi teknis dan modul panduan sistem keanggotaan organisasi ASPIKOM.",
-    fullDesc: "Portal dokumentasi komprehensif yang memuat panduan pengguna, dokumentasi API keanggotaan, serta panduan administrasi organisasi untuk pengurus daerah dan pusat.",
-    highlights: [
-      "Antarmuka dokumentasi modern berbasis React & Markdown.",
-      "Pencarian dokumen real-time dan navigasi cepat sidebar."
-    ],
-    tech: ["React", "TypeScript", "Markdown", "Tailwind CSS"],
-    mainImage: imgMembershipDash,
-    gallery: [imgMembershipDash, imgMembership],
-    liveUrl: "#",
-    githubUrl: "https://github.com/mrmoody-dev/docs-member-aspikom"
-  },
-  {
-    id: "website-agency",
-    title: "Website Agency Seventhsense",
-    category: "fullstack",
-    categoryBadge: "Fullstack Web",
-    stars: "4.7",
-    description: "Website company profile & talent showcase untuk Agency Seventhsense.",
-    fullDesc: "Website company profile profesional untuk showcasing portofolio agency, talent roster, serta layanan pemasaran digital.",
-    highlights: [
-      "Desain responsif cepat dengan animasi interaktif modern.",
-      "Form formulir kontak & booking talent terintegrasi."
-    ],
-    tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
-    mainImage: imgSeventhsense,
-    gallery: [imgSeventhsense, imgMembership],
-    liveUrl: "https://seventhsense.id",
-    githubUrl: "#"
-  },
-  {
     id: "aplikasi-pendaftaran",
-    title: "Aplikasi Pendaftaran Conference IICACS",
+    title: "IICACS.COM - Conference Registration Portal",
     category: "fullstack",
     categoryBadge: "Fullstack Web",
     stars: "4.8",
-    description: "Aplikasi pendaftaran peserta & pemateri konferensi tingkat internasional (IICACS).",
+    description: "Mengembangkan platform IICACS dengan desain web responsif, navigasi seamless, serta integrasi sistem backend conference yang efisien.",
     fullDesc: "Aplikasi web pendaftaran konferensi internasional, mencakup manajemen submisi abstrak makalah, pendaftaran peserta umum/pemateri, serta verifikasi bukti pembayaran.",
     highlights: [
       "Modul submisi & review abstrak karya ilmiah peserta konferensi.",
@@ -190,6 +153,24 @@ const projectsData: ProjectItem[] = [
     mainImage: imgIicacs,
     gallery: [imgIicacs, imgMembershipDash],
     liveUrl: "https://iicacs.com",
+    githubUrl: "#"
+  },
+  {
+    id: "website-agency",
+    title: "Seventhsense.id - Agency Website",
+    category: "fullstack",
+    categoryBadge: "Fullstack Web",
+    stars: "4.7",
+    description: "Pengembangan situs web interaktif dan penataan antarmuka pengguna (UI/UX) untuk Seventhsense.id.",
+    fullDesc: "Website company profile profesional untuk showcasing portofolio agency, talent roster, serta layanan pemasaran digital.",
+    highlights: [
+      "Desain responsif cepat dengan animasi interaktif modern.",
+      "Form formulir kontak & booking talent terintegrasi."
+    ],
+    tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+    mainImage: imgSeventhsense,
+    gallery: [imgSeventhsense, imgMembership],
+    liveUrl: "https://seventhsense.id",
     githubUrl: "#"
   },
   {
@@ -212,11 +193,11 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: "website-radio",
-    title: "Website Radio Budi Luhur",
+    title: "Radiobudiluhur.com - Web Streaming",
     category: "fullstack",
     categoryBadge: "Fullstack Web",
     stars: "4.7",
-    description: "Website streaming audio live dan portal informasi untuk Radio Budi Luhur.",
+    description: "Pengembangan sistem web portal dan integrasi media digital audio streaming live untuk Radio Budi Luhur.",
     fullDesc: "Menampilkan pemutar audio streaming radio live, jadwal program siaran harian, profil penyiar, serta portal berita seputar aktivitas kampus.",
     highlights: [
       "Integrasi audio player streaming live berlatensi rendah.",
@@ -234,10 +215,10 @@ const projectsData: ProjectItem[] = [
     category: "fullstack",
     categoryBadge: "Fullstack Web",
     stars: "4.8",
-    description: "Website profil dan pusat portal berita asosiasi pendidikan ilmu komunikasi Indonesia.",
+    description: "Website resmi Asosiasi Pendidikan Tinggi Ilmu Komunikasi (ASPIKOM) sebagai pusat publikasi kegiatan & direktori prodi.",
     fullDesc: "Website resmi Asosiasi Pendidikan Tinggi Ilmu Komunikasi (ASPIKOM) sebagai pusat publikasi kegiatan, warta organisasi, dan direktori prodi ilmu komunikasi nasional.",
     highlights: [
-      "Migrasi konten dan penataan ulang arsitektur informasi informasi asosiasi.",
+      "Migrasi konten dan penataan ulang arsitektur informasi asosiasi.",
       "Portal publikasi berita & galeri kegiatan nasional."
     ],
     tech: ["Wordpress", "PHP", "MySQL"],
@@ -248,11 +229,11 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: "website-makadaya",
-    title: "Website Company Profile Makadaya",
+    title: "Makadaya.org - Company Profile",
     category: "fullstack",
     categoryBadge: "Fullstack Web",
     stars: "4.7",
-    description: "Website company profile profesional untuk Makadaya.",
+    description: "Pengembangan sistem web portal dan company profile resmi untuk Makadaya.org.",
     fullDesc: "Company profile resmi yang menampilkan katalog layanan, portofolio proyek terstruktur, serta informasi kontak perusahaan Makadaya.",
     highlights: [
       "Tampilan company profile korporat bersih & responsif.",
@@ -279,10 +260,10 @@ export default function App() {
   // Hero Typing Effect State
   const [typingRole, setTypingRole] = useState<string>("");
   const roles = [
-    "Full-Stack Software Engineer",
-    "AI & Automation Specialist",
-    "Python Trading Bot Engineer",
-    "PHP (Laravel / CodeIgniter) Expert"
+    "IT Infrastructure & Network Specialist",
+    "IT Plant Automation Engineer (Level 2)",
+    "Full-Stack Web & Backend Developer",
+    "Python AI & Trading Bot Specialist"
   ];
 
   // About Tabs State
@@ -423,50 +404,50 @@ export default function App() {
     }
   };
 
-  // Filtered Skill Items Helper
+  // Skill Data matching exact CV
   const skillsData = [
     {
-      category: "frontend",
-      categoryTitle: "Frontend Development",
-      categoryIcon: "fa-desktop",
+      category: "network",
+      categoryTitle: "Network & IT Infrastructure",
+      categoryIcon: "fa-network-wired",
       skills: [
-        { name: "React.js / Next.js", icon: "fa-brands fa-react color-react", percent: "95%", tags: "react nextjs javascript typescript frontend" },
-        { name: "TypeScript & ES6+", icon: "fa-brands fa-js color-ts", percent: "90%", tags: "typescript javascript frontend" },
-        { name: "HTML5 / Modern CSS3 & Tailwind", icon: "fa-brands fa-css3-alt color-css", percent: "95%", tags: "html css tailwind bootstrap glassmorphism responsive" },
-        { name: "Bootstrap & Design Systems", icon: "fa-solid fa-layer-group color-ds", percent: "92%", tags: "bootstrap UI design system frontend" }
+        { name: "LAN/WAN Topology & Mikrotik/Cisco", icon: "fa-solid fa-network-wired color-aws", percent: "95%", tags: "mikrotik cisco lan wan vlan router switch" },
+        { name: "Network Security, Firewall & VPN", icon: "fa-solid fa-shield-halved color-db", percent: "90%", tags: "firewall vpn security enterprise antivirus" },
+        { name: "Server Administration (Linux & Windows)", icon: "fa-solid fa-server color-node", percent: "92%", tags: "linux ubuntu debian windows server virtualization backup" },
+        { name: "UTP/Fiber Optic & CCTV Systems", icon: "fa-solid fa-video color-api", percent: "88%", tags: "fiber optic utp cctv hardware maintenance" }
       ]
     },
     {
-      category: "backend",
-      categoryTitle: "Backend & Database",
-      categoryIcon: "fa-server",
+      category: "automation",
+      categoryTitle: "IT Automation & Control Systems",
+      categoryIcon: "fa-microchip",
       skills: [
-        { name: "PHP (CodeIgniter 4 / Laravel)", icon: "fa-brands fa-php color-node", percent: "95%", tags: "php codeigniter laravel backend api" },
-        { name: "Python (Flask / FastAPI)", icon: "fa-brands fa-python color-python", percent: "90%", tags: "python flask fastapi backend AI automation" },
-        { name: "Node.js & RESTful API", icon: "fa-brands fa-node-js color-node", percent: "88%", tags: "nodejs express rest api backend" },
-        { name: "MySQL, PostgreSQL & Redis", icon: "fa-solid fa-database color-db", percent: "90%", tags: "mysql postgresql redis database sql" }
+        { name: "Level 2 Plant Automation Maintenance", icon: "fa-solid fa-industry color-ai", percent: "95%", tags: "posco dx level 2 plant automation scada" },
+        { name: "Troubleshooting Hardware/Software Industri", icon: "fa-solid fa-wrench color-python", percent: "92%", tags: "troubleshooting industrial hardware software field operations" },
+        { name: "Pelabuhan NPKTOS & Autogate Systems", icon: "fa-solid fa-dharmachakra color-react", percent: "90%", tags: "pelindo npktos autogate logistics ticketing" },
+        { name: "Data Backup & Disaster Recovery", icon: "fa-solid fa-database color-db", percent: "90%", tags: "backup disaster recovery data integrity" }
       ]
     },
     {
-      category: "ai",
-      categoryTitle: "AI, Automation & Tools",
-      categoryIcon: "fa-cloud-bolt",
+      category: "webdev",
+      categoryTitle: "Web Development & Database",
+      categoryIcon: "fa-code",
       skills: [
-        { name: "Integrasi AI & Gemini / OpenAI API", icon: "fa-solid fa-brain color-ai", percent: "92%", tags: "ai gemini openai api python automation" },
-        { name: "Trading Bot & WebSocket Streaming", icon: "fa-solid fa-robot color-ai", percent: "90%", tags: "trading bot websocket crypto automation python" },
-        { name: "FFmpeg Video Processing & Edge-TTS", icon: "fa-solid fa-video color-api", percent: "88%", tags: "ffmpeg video generator tts python media" },
-        { name: "Git & Docker Containerization", icon: "fa-brands fa-docker color-docker", percent: "85%", tags: "git github docker devops container" }
+        { name: "PHP (Laravel / CodeIgniter 4)", icon: "fa-brands fa-php color-node", percent: "95%", tags: "php laravel codeigniter backend web" },
+        { name: "JavaScript / TypeScript & React", icon: "fa-brands fa-react color-react", percent: "90%", tags: "javascript typescript react frontend" },
+        { name: "Python (AI Automation & Data)", icon: "fa-brands fa-python color-python", percent: "88%", tags: "python automation pandas scraping fastapi" },
+        { name: "MySQL, PostgreSQL & RESTful API", icon: "fa-solid fa-database color-db", percent: "92%", tags: "mysql postgresql rest api database" }
       ]
     },
     {
-      category: "domain",
-      categoryTitle: "System Architecture & Domain",
-      categoryIcon: "fa-pen-ruler",
+      category: "tools",
+      categoryTitle: "Data, QA & Professional Tools",
+      categoryIcon: "fa-layer-group",
       skills: [
-        { name: "RESTful API Mobile Backend", icon: "fa-solid fa-mobile-screen color-api", percent: "92%", tags: "mobile backend api geofencing jwt" },
-        { name: "GPS Geofencing & Security", icon: "fa-solid fa-location-dot color-ds", percent: "90%", tags: "geofencing gps security authentication" },
-        { name: "ERP Odoo Integration & Support", icon: "fa-solid fa-boxes-stacked color-aws", percent: "85%", tags: "erp odoo support business system" },
-        { name: "Clean Code & Performance Optimization", icon: "fa-solid fa-gauge-high color-test", percent: "95%", tags: "clean code performance optimization quality" }
+        { name: "Quality Assurance & Manual Testing", icon: "fa-solid fa-vial-circle-check color-test", percent: "88%", tags: "qa quality assurance testing skilling myskill" },
+        { name: "Web Scraping & Data Analysis (Pandas)", icon: "fa-solid fa-chart-line color-css", percent: "86%", tags: "web scraping pandas data analysis python" },
+        { name: "Git, Linux CLI & Shell Scripting", icon: "fa-brands fa-github color-git", percent: "90%", tags: "git github linux shell bash" },
+        { name: "Canva & Graphic Documentation", icon: "fa-solid fa-palette color-figma", percent: "88%", tags: "canva graphic design documentation" }
       ]
     }
   ];
@@ -630,7 +611,7 @@ export default function App() {
             <div className="hero-content">
               <div className="status-badge">
                 <span className="pulse-dot"></span>
-                <span>Tersedia untuk Proyek Remote &amp; Onsite</span>
+                <span>Tersedia untuk Proyek Remote &amp; On-Site Cilegon/Serang</span>
               </div>
 
               <h1 className="hero-title">
@@ -643,7 +624,7 @@ export default function App() {
               </h2>
 
               <p className="hero-description">
-                Mengubah kebutuhan bisnis kompleks menjadi aplikasi web bermutu tinggi, cepat, aman, dan intuitif. Berfokus pada pengembangan Full-Stack Web, REST API Mobile Backend, serta sistem otomatisasi berbasis AI &amp; Data.
+                Lulusan Sarjana Komputer (S.Kom) <strong>Cum Laude (IPK 3.59)</strong> dengan pengalaman kerja <strong>6+ tahun</strong> di bidang IT Automation (PT POSCO DX Indonesia), Infrastruktur Jaringan &amp; Programming (PT BCS Logistics), serta Pemantauan Sistem Pelabuhan (PT Pelindo 2).
               </p>
 
               {/* Action Buttons */}
@@ -662,6 +643,9 @@ export default function App() {
               {/* Social Links */}
               <div className="social-links">
                 <span className="social-label">Ikuti &amp; Kontak:</span>
+                <a href="https://www.linkedin.com/in/adi-fuadil-563387257/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
+                  <i className="fa-brands fa-linkedin"></i>
+                </a>
                 <a href="https://github.com/mrmoody-dev" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
                   <i className="fa-brands fa-github"></i>
                 </a>
@@ -688,17 +672,17 @@ export default function App() {
                   </div>
                   <div className="badge-info">
                     <span className="badge-number">6+ Tahun</span>
-                    <span className="badge-text">Pengalaman Dev</span>
+                    <span className="badge-text">Pengalaman IT</span>
                   </div>
                 </div>
 
                 <div className="floating-badge badge-2 glass-card">
                   <div className="badge-icon">
-                    <i className="fa-solid fa-circle-check"></i>
+                    <i className="fa-solid fa-graduation-cap"></i>
                   </div>
                   <div className="badge-info">
-                    <span className="badge-number">48+ Proyek</span>
-                    <span className="badge-text">Selesai Berhasil</span>
+                    <span className="badge-number">3.59 IPK</span>
+                    <span className="badge-text">S.Kom Cum Laude</span>
                   </div>
                 </div>
               </div>
@@ -712,22 +696,22 @@ export default function App() {
             <div className="section-header text-center">
               <span className="section-tag">Tentang Saya</span>
               <h2 className="section-title">
-                Dedikasi Pada <span className="text-gradient">Kualitas &amp; Inovasi</span>
+                Dedikasi Pada <span className="text-gradient">Kualitas &amp; Keandalan</span>
               </h2>
-              <p className="section-subtitle">Pengenal singkat mengenai perjalanan karir, prinsip kerja, dan pendekatan arsitektur sistem saya.</p>
+              <p className="section-subtitle">Pengenal singkat mengenai rekam jejak profesionalisme, keahlian industri, dan kualifikasi teknis.</p>
             </div>
 
             <div className="about-grid">
               {/* Bio Card */}
               <div className="glass-card about-bio-card">
                 <h3 className="card-title">
-                  <i className="fa-solid fa-laptop-code"></i> Perjalanan &amp; Filosofi
+                  <i className="fa-solid fa-laptop-code"></i> Perjalanan &amp; Spesialisasi
                 </h3>
                 <p>
-                  Saya adalah seorang <strong>Full-Stack Software Engineer &amp; AI Automation Specialist</strong> dengan latar belakang pendidikan Sarjana Komputer (S.Kom) dari Universitas Budi Luhur berpredikat <strong>Cum Laude (IPK 3.59)</strong>.
+                  Saya adalah seorang <strong>IT Infrastructure, Network &amp; Automation Specialist / Web Developer</strong> berpendidikan Sarjana Komputer (S.Kom) dari Universitas Banten Jaya dengan predikat <strong>Dengan Pujian (IPK 3.59 Cum Laude)</strong>.
                 </p>
                 <p>
-                  Prinsip utama saya adalah menciptakan produk digital yang tidak hanya <em>memukau secara visual</em>, tetapi juga memiliki kestabilan performa tinggi, keamanan solid (Security-by-Design), serta skalabilitas masa depan.
+                  Memiliki rekam jejak <strong>6+ tahun</strong> mengelola pemeliharaan sistem otomatisasi Level 2 pabrik baja di <strong>PT POSCO DX Indonesia</strong> (5 tahun), infrastruktur IT &amp; jaringan Mikrotik di <strong>PT BCS Logistics</strong>, serta pemantauan operasional sistem pelabuhan NPKTOS di <strong>PT Pelindo 2 Ciwandan</strong>.
                 </p>
 
                 {/* Metric Counters */}
@@ -738,14 +722,14 @@ export default function App() {
                     <span className="stat-label">Tahun Pengalaman</span>
                   </div>
                   <div className="stat-item">
-                    <span className="stat-number">48</span>
-                    <span className="stat-plus">+</span>
-                    <span className="stat-label">Proyek Selesai</span>
+                    <span className="stat-number">5</span>
+                    <span className="stat-plus"> Thn</span>
+                    <span className="stat-label">POSCO DX Level 2</span>
                   </div>
                   <div className="stat-item">
-                    <span className="stat-number">25</span>
-                    <span className="stat-plus">+</span>
-                    <span className="stat-label">Klien &amp; Mitra</span>
+                    <span className="stat-number">100</span>
+                    <span className="stat-plus">%</span>
+                    <span className="stat-label">IT Infra BCS Logistics</span>
                   </div>
                   <div className="stat-item">
                     <span className="stat-number">3.59</span>
@@ -762,7 +746,7 @@ export default function App() {
                     className={`tab-btn ${activeAboutTab === "tab-values" ? "active" : ""}`}
                     onClick={() => setActiveAboutTab("tab-values")}
                   >
-                    <i className="fa-solid fa-compass"></i> Nilai Utama
+                    <i className="fa-solid fa-compass"></i> Kompetensi Utama
                   </button>
                   <button
                     className={`tab-btn ${activeAboutTab === "tab-stack" ? "active" : ""}`}
@@ -774,7 +758,7 @@ export default function App() {
                     className={`tab-btn ${activeAboutTab === "tab-interests" ? "active" : ""}`}
                     onClick={() => setActiveAboutTab("tab-interests")}
                   >
-                    <i className="fa-solid fa-heart"></i> Minat &amp; Fokus
+                    <i className="fa-solid fa-heart"></i> Pengalaman Industri
                   </button>
                 </div>
 
@@ -783,29 +767,29 @@ export default function App() {
                     <ul className="value-list">
                       <li>
                         <div className="value-icon">
-                          <i className="fa-solid fa-shield-halved"></i>
+                          <i className="fa-solid fa-network-wired"></i>
                         </div>
                         <div>
-                          <h4>Clean Code &amp; Security-by-Design</h4>
-                          <p>Kode terstruktur rapi, teruji otomatis, serta memperhatikan standar keamanan REST API &amp; autentikasi.</p>
+                          <h4>IT Infrastructure &amp; Network Security</h4>
+                          <p>Merancang topologi LAN/WAN/VLAN Mikrotik/Cisco, keamanan Firewall enterprise, serta disaster recovery.</p>
                         </div>
                       </li>
                       <li>
                         <div className="value-icon">
-                          <i className="fa-solid fa-bolt"></i>
+                          <i className="fa-solid fa-industry"></i>
                         </div>
                         <div>
-                          <h4>Performa &amp; Perlegaan Cepat</h4>
-                          <p>Optimasi query basis data dan response time API untuk memberikan pengalaman pengguna tanpa hambatan.</p>
+                          <h4>Level 2 Industrial Automation (POSCO DX)</h4>
+                          <p>Pemeliharaan rutin dan troubleshooting gangguan teknis Layer 2 untuk menjaga stabilitas pabrik tanpa downtime.</p>
                         </div>
                       </li>
                       <li>
                         <div className="value-icon">
-                          <i className="fa-solid fa-wand-magic-sparkles"></i>
+                          <i className="fa-solid fa-code"></i>
                         </div>
                         <div>
-                          <h4>Desain UI/UX Manusiawi &amp; Responsif</h4>
-                          <p>Antarmuka ramah pengguna, modern dengan glassmorphism, serta responsif di semua perangkat mobile/desktop.</p>
+                          <h4>Web Development (PHP Laravel / CodeIgniter)</h4>
+                          <p>Mengembangkan aplikasi web manajemen data logistik, sistem kurikulum OBE, serta RESTful API mobile.</p>
                         </div>
                       </li>
                     </ul>
@@ -816,34 +800,31 @@ export default function App() {
                   <div className="tab-content active" id="tab-stack">
                     <div className="tech-pills-cloud">
                       <span className="tech-pill">
-                        <i className="fa-brands fa-react"></i> React.js / TypeScript
+                        <i className="fa-solid fa-network-wired"></i> Mikrotik / Cisco LAN/WAN
                       </span>
                       <span className="tech-pill">
-                        <i className="fa-brands fa-php"></i> PHP (CodeIgniter 4 / Laravel)
+                        <i className="fa-solid fa-shield-halved"></i> Firewall &amp; Enterprise Security
                       </span>
                       <span className="tech-pill">
-                        <i className="fa-brands fa-python"></i> Python (Flask / FastAPI)
+                        <i className="fa-solid fa-industry"></i> Level 2 Automation Systems
                       </span>
                       <span className="tech-pill">
-                        <i className="fa-brands fa-node"></i> Node.js &amp; REST API
+                        <i className="fa-brands fa-php"></i> PHP (Laravel / CodeIgniter 4)
+                      </span>
+                      <span className="tech-pill">
+                        <i className="fa-brands fa-react"></i> React &amp; JavaScript/TypeScript
+                      </span>
+                      <span className="tech-pill">
+                        <i className="fa-brands fa-python"></i> Python (Data Science &amp; AI)
                       </span>
                       <span className="tech-pill">
                         <i className="fa-solid fa-database"></i> MySQL &amp; PostgreSQL
                       </span>
                       <span className="tech-pill">
-                        <i className="fa-solid fa-brain"></i> Gemini 2.0 AI API
+                        <i className="fa-solid fa-server"></i> Linux (Ubuntu/Debian) &amp; Windows Server
                       </span>
                       <span className="tech-pill">
-                        <i className="fa-solid fa-robot"></i> Trading Bot &amp; WebSocket
-                      </span>
-                      <span className="tech-pill">
-                        <i className="fa-brands fa-docker"></i> Docker &amp; Linux Admin
-                      </span>
-                      <span className="tech-pill">
-                        <i className="fa-solid fa-location-dot"></i> GPS Geofencing
-                      </span>
-                      <span className="tech-pill">
-                        <i className="fa-solid fa-boxes-stacked"></i> ERP Odoo Support
+                        <i className="fa-solid fa-vial-circle-check"></i> Quality Assurance (QA)
                       </span>
                     </div>
                   </div>
@@ -851,19 +832,19 @@ export default function App() {
 
                 {activeAboutTab === "tab-interests" && (
                   <div className="tab-content active" id="tab-interests">
-                    <p className="tab-desc">Selain pemrograman harian, saya aktif mendalami teknologi berkembang:</p>
+                    <p className="tab-desc">Pengalaman operasional &amp; pemeliharaan di berbagai sektor industri:</p>
                     <ul className="interest-list">
                       <li>
-                        <i className="fa-solid fa-circle-check"></i> Otomasi Video Shorts/Reels berbasis AI Script &amp; FFmpeg
+                        <i className="fa-solid fa-circle-check"></i> <strong>PT POSCO DX Indonesia</strong> (5 Thn) - Level 2 Plant Automation Maintenance
                       </li>
                       <li>
-                        <i className="fa-solid fa-circle-check"></i> Algoritma Trading Bot &amp; Market Screener Crypto Real-Time
+                        <i className="fa-solid fa-circle-check"></i> <strong>PT BCS Logistics</strong> - IT Infrastructure, Network &amp; Programming
                       </li>
                       <li>
-                        <i className="fa-solid fa-circle-check"></i> Sistem Informasi Kurikulum Pendidikan OBE Multi-Tenant
+                        <i className="fa-solid fa-circle-check"></i> <strong>PT Pelindo 2 Ciwandan Port</strong> - NPKTOS &amp; Autogate Systems Support
                       </li>
                       <li>
-                        <i className="fa-solid fa-circle-check"></i> REST API Mobile Backend dengan Keamanan Geofencing
+                        <i className="fa-solid fa-circle-check"></i> <strong>Pengembangan Sistem Kurikulum OBE</strong> (SIMOBE) &amp; Member ASPIKOM
                       </li>
                     </ul>
                   </div>
@@ -881,7 +862,7 @@ export default function App() {
               <h2 className="section-title">
                 Resume &amp; <span className="text-gradient">Pengalaman Kerja</span>
               </h2>
-              <p className="section-subtitle">Rekam jejak profesionalisme, pendidikan formal, dan sertifikasi keahlian.</p>
+              <p className="section-subtitle">Rekam jejak profesionalisme kerja di industri manufaktur/logistik, pendidikan formal, dan sertifikasi keahlian.</p>
             </div>
 
             {/* Filter Tab Buttons */}
@@ -916,7 +897,7 @@ export default function App() {
 
             {/* Timeline Container */}
             <div className="timeline-container">
-              {/* Item 1: Job */}
+              {/* Item 1: Job - PT BCS Logistics */}
               {(timelineFilter === "all" || timelineFilter === "experience") && (
                 <div className="timeline-item">
                   <div className="timeline-dot">
@@ -926,101 +907,109 @@ export default function App() {
                     <div className="timeline-header">
                       <div>
                         <span className="timeline-date">
-                          <i className="fa-regular fa-calendar"></i> 2023 - Sekarang
+                          <i className="fa-regular fa-calendar"></i> April 2025 – April 2026
                         </span>
-                        <h3 className="timeline-title">Full-Stack &amp; Backend Mobile Engineer</h3>
-                        <span className="timeline-company">PT BCS Logistics / Presensi MyBCS</span>
+                        <h3 className="timeline-title">IT Infrastructure, Network &amp; Programming Specialist</h3>
+                        <span className="timeline-company">PT. BCS Logistics | Cilegon, Banten</span>
                       </div>
-                      <span className="badge badge-accent">Penuh Waktu / Kontrak</span>
+                      <span className="badge badge-accent">Penuh Waktu</span>
                     </div>
                     <p className="timeline-body">
-                      Merancang dan mengimplementasikan Sistem Presensi Karyawan terintegrasi Web Dashboard Admin (PHP/CodeIgniter 4) dan RESTful API aman untuk aplikasi mobile presensi dengan verifikasi lokasi GPS geo-tagging.
+                      Mengelola dan memelihara 100% infrastruktur IT perusahaan meliputi fisik server, workstation hardware, dan lisensi software untuk mendukung kelancaran operasional logistik.
                     </p>
                     <ul className="timeline-highlights">
-                      <li>Mengembangkan REST API aman untuk aplikasi mobile presensi karyawan harian.</li>
-                      <li>Mengintegrasikan validasi lokasi GPS Geofencing untuk mencegah manipulasi absensi.</li>
-                      <li>Memberikan dukungan teknis operasional IT &amp; pendampingan pengguna ERP Odoo.</li>
+                      <li>Mengelola &amp; memelihara 100% fisik server, workstation hardware, dan lisensi software operasional logistik.</li>
+                      <li>Merancang, mengonfigurasi, dan mengadministrasikan topologi jaringan (LAN/WAN/VLAN) serta perangkat Mikrotik.</li>
+                      <li>Menerapkan kebijakan keamanan jaringan (Firewall &amp; Antivirus enterprise) guna melindungi data perusahaan.</li>
+                      <li>Mengembangkan dan memelihara aplikasi web internal berbasis <strong>PHP (CodeIgniter)</strong> untuk otomatisasi proses bisnis.</li>
+                      <li>Menjalankan prosedur backup data rutin dan menguji keandalan sistem <em>disaster recovery</em>.</li>
                     </ul>
                     <div className="timeline-tags">
                       <span>PHP</span>
-                      <span>CodeIgniter 4</span>
-                      <span>MySQL</span>
-                      <span>REST API</span>
-                      <span>Geofencing</span>
-                      <span>ERP Odoo</span>
+                      <span>CodeIgniter</span>
+                      <span>Mikrotik</span>
+                      <span>LAN/WAN/VLAN</span>
+                      <span>Firewall</span>
+                      <span>Disaster Recovery</span>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Item 2: Job */}
+              {/* Item 2: Job - PT POSCO DX Indonesia */}
               {(timelineFilter === "all" || timelineFilter === "experience") && (
                 <div className="timeline-item">
                   <div className="timeline-dot">
-                    <i className="fa-solid fa-robot"></i>
+                    <i className="fa-solid fa-industry"></i>
                   </div>
                   <div className="glass-card timeline-card">
                     <div className="timeline-header">
                       <div>
                         <span className="timeline-date">
-                          <i className="fa-regular fa-calendar"></i> 2023 - 2024
+                          <i className="fa-regular fa-calendar"></i> Agustus 2019 – Juli 2024 (5 Tahun)
                         </span>
-                        <h3 className="timeline-title">AI Systems &amp; Automation Engineer</h3>
-                        <span className="timeline-company">Islamic Shorts Engine</span>
+                        <h3 className="timeline-title">IT Automation Specialist (Level 2 System Maintenance)</h3>
+                        <span className="timeline-company">PT. POSCO DX INDONESIA | Cilegon, Banten</span>
                       </div>
-                      <span className="badge badge-secondary">Proyek Mandiri</span>
+                      <span className="badge badge-accent">Penuh Waktu</span>
                     </div>
                     <p className="timeline-body">
-                      Membangun engine otomatisasi produksi konten video Shorts/Reels/TikTok dari video panjang berbasis AI Script Generator, Edge-TTS, dan render komposisi FFmpeg.
+                      Bertanggung jawab penuh atas pemeliharaan rutin, inspeksi teknis, dan pencegahan downtime pada sistem otomatisasi Level 2 di lingkungan pabrik baja POSCO DX.
                     </p>
                     <ul className="timeline-highlights">
-                      <li>Mengintegrasikan Gemini 2.0 Flash API untuk deteksi momen menarik &amp; generasi skrip.</li>
-                      <li>Membuat sistem efek animasi Ken Burns dan subtitle karaoke animasi otomatis.</li>
-                      <li>Membangun Dashboard Web berbasis Python Flask untuk review dan upload video.</li>
+                      <li>Inspeksi pemeliharaan rutin (daily, weekly, monthly) pada sistem otomatisasi Level 2 lini produksi pabrik baja.</li>
+                      <li>Menganalisis, mendiagnosis, dan menyelesaikan (troubleshooting) gangguan teknis pada sistem Layer 2.</li>
+                      <li>Mengelola performa sistem Layer 2 secara berkelanjutan guna memastikan operasi produksi berjalan dengan <em>zero downtime</em>.</li>
+                      <li>Memberikan dukungan teknis (field operations support) serta mentoring kepada tim lapangan mengenai perawatan sistem otomatisasi.</li>
                     </ul>
                     <div className="timeline-tags">
-                      <span>Python</span>
-                      <span>Flask</span>
-                      <span>Gemini AI</span>
-                      <span>Edge-TTS</span>
-                      <span>FFmpeg</span>
+                      <span>Level 2 Automation</span>
+                      <span>SCADA</span>
+                      <span>Plant Maintenance</span>
+                      <span>Troubleshooting</span>
+                      <span>Field Support</span>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Item 3: Job */}
+              {/* Item 3: Job - PT Tangga Karir Kita (Pelindo 2) */}
               {(timelineFilter === "all" || timelineFilter === "experience") && (
                 <div className="timeline-item">
                   <div className="timeline-dot">
-                    <i className="fa-solid fa-chart-line"></i>
+                    <i className="fa-solid fa-dharmachakra"></i>
                   </div>
                   <div className="glass-card timeline-card">
                     <div className="timeline-header">
                       <div>
                         <span className="timeline-date">
-                          <i className="fa-regular fa-calendar"></i> 2022 - 2024
+                          <i className="fa-regular fa-calendar"></i> Desember 2017 – Juli 2019
                         </span>
-                        <h3 className="timeline-title">Backend &amp; Automation Engineer</h3>
-                        <span className="timeline-company">Indodax Trading Bot &amp; Analytics</span>
+                        <h3 className="timeline-title">IT Support Engineer On-Site (Pelabuhan Pelindo 2)</h3>
+                        <span className="timeline-company">PT. Tangga Karir Kita | Ciwandan, Cilegon</span>
                       </div>
-                      <span className="badge badge-secondary">Proyek Mandiri</span>
+                      <span className="badge badge-secondary">On-Site</span>
                     </div>
                     <p className="timeline-body">
-                      Mengembangkan sistem otomasi trading crypto yang mengeksekusi order beli/jual berdasarkan indikator teknis (RSI, MACD), WebSocket streaming data, dan notifikasi Telegram real-time.
+                      Memantau dan memastikan kelancaran operasional sistem NPKTOS dan Autogate untuk lalu lintas kendaraan logistik di kawasan Pelabuhan PT Pelindo 2 Ciwandan.
                     </p>
+                    <ul className="timeline-highlights">
+                      <li>Memantau operasional sistem <strong>NPKTOS</strong> (Non-Container Terminal Operating System) Pelabuhan Pelindo 2 Ciwandan.</li>
+                      <li>Memverifikasi dan memvalidasi kesesuaian data laporan transaksi sistem dengan realisasi fisik operasional di lapangan.</li>
+                      <li>Memelihara keandalan sistem <strong>Autogate</strong> untuk lalu lintas kendaraan pengangkut logistik barang di pintu gerbang pelabuhan.</li>
+                      <li>Mengelola sistem penanganan tiket kendala (Helpdesk Ticketing) dan berkoordinasi dengan tim IT Level 2.</li>
+                    </ul>
                     <div className="timeline-tags">
-                      <span>Python</span>
-                      <span>Node.js</span>
-                      <span>WebSocket</span>
-                      <span>REST API</span>
-                      <span>Telegram Bot</span>
+                      <span>NPKTOS Pelindo 2</span>
+                      <span>Autogate Systems</span>
+                      <span>Helpdesk Ticketing</span>
+                      <span>Hardware &amp; Network Support</span>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Item 4: Education */}
+              {/* Item 4: Education - Universitas Banten Jaya */}
               {(timelineFilter === "all" || timelineFilter === "education") && (
                 <div className="timeline-item">
                   <div className="timeline-dot">
@@ -1030,21 +1019,21 @@ export default function App() {
                     <div className="timeline-header">
                       <div>
                         <span className="timeline-date">
-                          <i className="fa-regular fa-calendar"></i> 2017 - 2021
+                          <i className="fa-regular fa-calendar"></i> 2013 – 2017
                         </span>
                         <h3 className="timeline-title">Sarjana Komputer (S.Kom) - Teknik Informatika</h3>
-                        <span className="timeline-company">Universitas Budi Luhur</span>
+                        <span className="timeline-company">Universitas Banten Jaya | Serang, Banten</span>
                       </div>
                       <span className="badge badge-accent">IPK: 3.59 / 4.00 (Cum Laude)</span>
                     </div>
                     <p className="timeline-body">
-                      Lulusan berpredikat Cum Laude dengan fokus riset rekayasa perangkat lunak, arsitektur sistem informasi web, dan optimasi basis data terdistribusi.
+                      Lulusan berpredikat <strong>Dengan Pujian (Cum Laude)</strong>. Judul Skripsi: <em>Perancangan Sistem Absensi Mahasiswa Terintegrasi dengan Sistem Akademik Menggunakan Teknologi RFID pada STIE Bina Bangsa Banten</em>.
                     </p>
                   </div>
                 </div>
               )}
 
-              {/* Item 5: Certificate */}
+              {/* Item 5: Certificates */}
               {(timelineFilter === "all" || timelineFilter === "certificate") && (
                 <div className="timeline-item">
                   <div className="timeline-dot">
@@ -1054,21 +1043,27 @@ export default function App() {
                     <div className="timeline-header">
                       <div>
                         <span className="timeline-date">
-                          <i className="fa-regular fa-calendar"></i> Berkas Resmi
+                          <i className="fa-regular fa-calendar"></i> Sertifikasi Resmi
                         </span>
-                        <h3 className="timeline-title">Sertifikat Keahlian &amp; Lampiran Ijazah</h3>
-                        <span className="timeline-company">Dokumentasi Terverifikasi (PDF 3.9 MB)</span>
+                        <h3 className="timeline-title">Pelatihan Keahlian &amp; Dokumen Resmi</h3>
+                        <span className="timeline-company">Sertifikat Terverifikasi (MySkill, DQLab, Skilvul, CodingStudio)</span>
                       </div>
                       <span className="badge badge-gold">
                         <i className="fa-solid fa-certificate"></i> Terverifikasi
                       </span>
                     </div>
-                    <p className="timeline-body">
-                      Seluruh berkas transkrip nilai, ijazah Sarjana Komputer, serta sertifikat pendukung telah disatukan secara resmi dan dapat diunduh langsung.
-                    </p>
+                    <ul className="timeline-highlights">
+                      <li><strong>Quality Assurance Fundamental</strong> – MySkill.com (Oktober 2024)</li>
+                      <li><strong>Python for Data Science &amp; Professional Beginner</strong> – DQLab / UMN (Oktober 2024)</li>
+                      <li><strong>Python Dasar &amp; Lanjutan</strong> – Skilvul.com (Februari &amp; Juli 2024)</li>
+                      <li><strong>Fundamental Cyber Security &amp; Linux Command</strong> – CodingStudio (Juni 2024)</li>
+                      <li><strong>Belajar HTTP untuk Pemula</strong> – Programmer Zaman Now (Desember 2023)</li>
+                      <li><strong>Introduction to Information Security</strong> – Cyber Academy Indonesia (September 2022)</li>
+                      <li><strong>Network Engineer Class Batch II</strong> – Surosowan Cyber Community</li>
+                    </ul>
                     <div style={{ marginTop: "1rem" }}>
                       <a href="/Lampiran_Dokumen_Adi_Fuadil.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline">
-                        <i className="fa-solid fa-file-pdf"></i> Buka Lampiran Ijazah &amp; Transkrip (PDF)
+                        <i className="fa-solid fa-file-pdf"></i> Lihat Lampiran Ijazah &amp; Transkrip PDF (3.9 MB)
                       </a>
                     </div>
                   </div>
@@ -1086,7 +1081,7 @@ export default function App() {
               <h2 className="section-title">
                 Teknologi &amp; <span className="text-gradient">Spesialisasi</span>
               </h2>
-              <p className="section-subtitle">Tingkat penguasaan perangkat lunak, bahasa pemrograman, dan kerangka kerja modern.</p>
+              <p className="section-subtitle">Tingkat penguasaan perangkat lunak, infrastruktur jaringan, bahasa pemrograman, dan otomasi.</p>
             </div>
 
             {/* Search Box */}
@@ -1095,7 +1090,7 @@ export default function App() {
                 <i className="fa-solid fa-magnifying-glass search-icon"></i>
                 <input
                   type="text"
-                  placeholder="Cari keahlian (misal: React, Python, CodeIgniter, Geofencing)..."
+                  placeholder="Cari keahlian (misal: Mikrotik, Python, POSCO DX, Laravel, QA)..."
                   value={skillSearchQuery}
                   onChange={(e) => setSkillSearchQuery(e.target.value)}
                 />
@@ -1144,7 +1139,7 @@ export default function App() {
               <h2 className="section-title">
                 Portofolio <span className="text-gradient">Proyek &amp; Aplikasi</span>
               </h2>
-              <p className="section-subtitle">Beberapa proyek unggulan yang memadukan keindahan desain dan kehandalan teknis.</p>
+              <p className="section-subtitle">Beberapa proyek unggulan yang memadukan keindahan desain dan kehandalan sistem.</p>
             </div>
 
             {/* Project Filter Buttons */}
@@ -1218,7 +1213,7 @@ export default function App() {
               <h2 className="section-title">
                 Hubungi <span className="text-gradient">Saya</span>
               </h2>
-              <p className="section-subtitle">Apakah Anda memiliki proyek menarik, tawaran karir, atau sekadar ingin menyapa? Silakan kirim pesan!</p>
+              <p className="section-subtitle">Apakah Anda memiliki proyek menarik, tawaran kerja Onsite/Remote, atau sekadar ingin menyapa? Silakan kirim pesan!</p>
             </div>
 
             <div className="contact-grid">
@@ -1228,7 +1223,7 @@ export default function App() {
                   <i className="fa-solid fa-paper-plane"></i> Informasi Kontak
                 </h3>
                 <p className="contact-intro">
-                  Saya selalu terbuka untuk mendiskusikan ide baru, peluang kerja sama proyek web/AI, atau tawaran posisi full-stack engineer.
+                  Saya selalu terbuka untuk mendiskusikan ide baru, peluang kerja sama IT support/automation, atau tawaran posisi software engineer.
                 </p>
 
                 <div className="contact-items">
@@ -1268,7 +1263,7 @@ export default function App() {
                     </div>
                     <div className="contact-detail">
                       <span className="contact-label">Lokasi Domisili</span>
-                      <span className="contact-value">Serang / Cilegon, Banten, Indonesia (Onsite &amp; Remote)</span>
+                      <span className="contact-value">Sukajadi, Serang / Cilegon, Banten (On-Site &amp; Remote)</span>
                     </div>
                   </div>
                 </div>
@@ -1316,7 +1311,7 @@ export default function App() {
                     <input
                       type="text"
                       id="form-subject"
-                      placeholder="Tawaran Proyek / Diskusi / Konsultasi"
+                      placeholder="Tawaran Proyek / Diskusi / Lowongan Kerja"
                       value={contactSubject}
                       onChange={(e) => setContactSubject(e.target.value)}
                     />
@@ -1329,7 +1324,7 @@ export default function App() {
                     <textarea
                       id="form-message"
                       rows={4}
-                      placeholder="Ceritakan detail proyek atau pertanyaan Anda..."
+                      placeholder="Ceritakan detail proyek atau tawaran pekerjaan..."
                       value={contactMessage}
                       onChange={(e) => setContactMessage(e.target.value)}
                     ></textarea>
@@ -1366,7 +1361,7 @@ export default function App() {
                 dils<span>dev</span>
               </span>
             </a>
-            <p>&copy; 2026 Adi Fuadil Hidayah. Dibuat dengan dedikasi tinggi &amp; clean code.</p>
+            <p>&copy; 2026 Adi Fuadil Hidayah, S.Kom. Dibuat dengan dedikasi tinggi &amp; clean code.</p>
           </div>
 
           <div className="footer-right">
